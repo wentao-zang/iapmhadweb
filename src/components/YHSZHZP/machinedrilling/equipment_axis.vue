@@ -1,5 +1,5 @@
 <template>
-  <div class="fasten">
+  <div class="equiaxis">
     <!-- <div class="tree_content"></div> -->
     <div class="data_content fl">
       <div class="fasten_content fl t_btn6" style="cursor: pointer">
@@ -32,7 +32,7 @@
             src="@/assets/images/HDYMJQRZK/机器人/机器人.png"
             alt=""
           />
-          机器人
+          设备轴状态
         </div>
         <div class="robot_table t_btn8">
           <table>
@@ -51,22 +51,6 @@
               <td>{{ productinfo.holeId }}</td>
               <td>位姿状态</td>
               <td>正常</td>
-            </tr>
-            <tr>
-              <td>位姿X(/mm)</td>
-              <td>{{ posinfo.lastData.x }}</td>
-              <td>位姿Y(/mm)</td>
-              <td>{{ posinfo.lastData.y }}</td>
-              <td>位姿Z(/mm)</td>
-              <td>{{ posinfo.lastData.z }}</td>
-            </tr>
-            <tr>
-              <td>位姿A(/mm)</td>
-              <td>{{ posinfo.lastData.a }}</td>
-              <td>位姿B(/mm)</td>
-              <td>{{ posinfo.lastData.b }}</td>
-              <td>位姿C(/mm)</td>
-              <td>{{ posinfo.lastData.c }}</td>
             </tr>
           </table>
         </div>
@@ -96,14 +80,15 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/角度.png"
-                alt=""
-              />
-              机器人各轴角度
+              <el-select v-model="value1" @change="change1">
+                <el-option
+                  v-for="item in options1"
+                  :key="item.label"
+                  :label="item.label"
+                  :value="item.label"
+                >
+                </el-option>
+              </el-select>
             </div>
             <div class="chartDiv">
               <v-chart class="chart" :option="option1" />
@@ -132,53 +117,18 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/加速度.png"
-                alt=""
-              />
-              机器人各轴加速度
+              <el-select v-model="value2" @change="change2">
+                <el-option
+                  v-for="item in options2"
+                  :key="item.label"
+                  :label="item.label"
+                  :value="item.label"
+                >
+                </el-option>
+              </el-select>
             </div>
             <div class="chartDiv">
               <v-chart class="chart" :option="option2" />
-            </div>
-          </div>
-          <div class="data3 fl t_btn6" style="cursor: pointer">
-            <!--左上十字边框-->
-            <div class="t_line_box">
-              <i class="t_l_line"></i>
-              <i class="l_t_line"></i>
-            </div>
-            <!--右上边框-->
-            <div class="t_line_box">
-              <i class="t_r_line"></i>
-              <i class="r_t_line"></i>
-            </div>
-            <!--左下边框-->
-            <div class="t_line_box">
-              <i class="l_b_line"></i>
-              <i class="b_l_line"></i>
-            </div>
-            <!--右下边框-->
-            <div class="t_line_box">
-              <i class="r_b_line"></i>
-              <i class="b_r_line"></i>
-            </div>
-            <!-- 左上框标题 -->
-            <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/电流.png"
-                alt=""
-              />
-              机器人各轴电流
-            </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option3" />
             </div>
           </div>
         </div>
@@ -206,17 +156,18 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/移动平台/电机转速.png"
-                alt=""
-              />
-              机器人各轴转矩
+              <el-select v-model="value3" @change="change3">
+                <el-option
+                  v-for="item in options3"
+                  :key="item.label"
+                  :label="item.label"
+                  :value="item.label"
+                >
+                </el-option>
+              </el-select>
             </div>
             <div class="chartDiv">
-              <v-chart class="chart" :option="option4" />
+              <v-chart class="chart" :option="option3" />
             </div>
           </div>
           <div class="data2 fl t_btn6" style="cursor: pointer">
@@ -242,53 +193,18 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/功率.png"
-                alt=""
-              />
-              机器人各轴功率
+              <el-select v-model="value4" @change="change4">
+                <el-option
+                  v-for="item in options4"
+                  :key="item.label"
+                  :label="item.label"
+                  :value="item.label"
+                >
+                </el-option>
+              </el-select>
             </div>
             <div class="chartDiv">
-              <v-chart class="chart" :option="option5" />
-            </div>
-          </div>
-          <div class="data3 fl t_btn6" style="cursor: pointer">
-            <!--左上十字边框-->
-            <div class="t_line_box">
-              <i class="t_l_line"></i>
-              <i class="l_t_line"></i>
-            </div>
-            <!--右上边框-->
-            <div class="t_line_box">
-              <i class="t_r_line"></i>
-              <i class="r_t_line"></i>
-            </div>
-            <!--左下边框-->
-            <div class="t_line_box">
-              <i class="l_b_line"></i>
-              <i class="b_l_line"></i>
-            </div>
-            <!--右下边框-->
-            <div class="t_line_box">
-              <i class="r_b_line"></i>
-              <i class="b_r_line"></i>
-            </div>
-            <!-- 左上框标题 -->
-            <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/温度.png"
-                alt=""
-              />
-              机器人各轴温度
-            </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option6" />
+              <v-chart class="chart" :option="option4" />
             </div>
           </div>
         </div>
@@ -303,6 +219,10 @@ export default {
   data() {
     //这里存放数据
     return {
+      value1: "平台X轴速度",
+      value2: "平台Y轴速度",
+      value3: "工位切换轴速度",
+      value4: "孔探轴速度",
       posinfo: {
         //存放处理后的数据
         list: [],
@@ -322,6 +242,34 @@ export default {
         lastId: 0,
         lastTime: 0
       },
+      options1: [
+        { label: "平台X轴速度", name: "速度/m/s", key: "rotvel" },
+        { label: "平台X轴位移", name: "位移/m", key: "current" },
+        { label: "平台X轴温度", name: "温度/℃", key: "power" },
+        { label: "平台X轴功率", name: "功率/W", key: "torque" },
+        { label: "平台X轴电流", name: "电流/A", key: "torque" }
+      ],
+      options2: [
+        { label: "平台Y轴速度", name: "速度/m/s", key: "rotvel" },
+        { label: "平台Y轴位移", name: "位移/m", key: "current" },
+        { label: "平台Y轴温度", name: "温度/℃", key: "power" },
+        { label: "平台Y轴功率", name: "功率/W", key: "torque" },
+        { label: "平台Y轴电流", name: "电流/A", key: "torque" }
+      ],
+      options3: [
+        { label: "工位切换轴速度", name: "速度/m/s", key: "rotvel" },
+        { label: "工位切换轴位移", name: "位移/m", key: "current" },
+        { label: "工位切换轴温度", name: "温度/℃", key: "power" },
+        { label: "工位切换轴功率", name: "功率/W", key: "torque" },
+        { label: "工位切换轴电流", name: "电流/A", key: "torque" }
+      ],
+      options4: [
+        { label: "孔探轴速度", name: "速度/m/s", key: "rotvel" },
+        { label: "孔探轴位移", name: "位移/m", key: "current" },
+        { label: "孔探轴温度", name: "温度/℃", key: "power" },
+        { label: "孔探轴功率", name: "功率/W", key: "torque" },
+        { label: "孔探轴电流", name: "电流/A", key: "torque" }
+      ],
       option1: {
         animation: false,
         title: [
@@ -393,7 +341,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "功率/W"
+          name: "转速/rpm"
         },
         visualMap: {
           show: false,
@@ -411,73 +359,7 @@ export default {
         series: [
           {
             data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#91cc75"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#2295d4"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
+            color: "#002aff",
             type: "line",
             showSymbol: false
           }
@@ -554,93 +436,45 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "mm·s^-2"
+          name: "mm"
         },
         visualMap: {
           show: false,
           pieces: [
-            {
-              gt: 8100.001,
-              color: "red"
-            },
-            {
-              lte: 8100,
-              color: "#91cc75"
-            }
+            // {
+            //   gt: 8100.001,
+            //   color: "red"
+            // },
+            // {
+            //   lte: 8100,
+            //   color: "#91cc75"
+            // }
           ]
         },
         series: [
           {
             data: [],
+            type: "line",
+            showSymbol: false,
             itemStyle: {
               normal: {
                 lineStyle: {
                   color: "#91cc75"
                 }
               }
-            },
-            type: "line",
-            showSymbol: false
+            }
           },
           {
             data: [],
+            type: "line",
+            showSymbol: false,
             itemStyle: {
               normal: {
                 lineStyle: {
-                  color: "#2295d4"
+                  color: "#fac858"
                 }
               }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
+            }
           }
         ]
       },
@@ -715,93 +549,45 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "电流/I"
+          name: "mm"
         },
         visualMap: {
           show: false,
           pieces: [
-            {
-              gt: 8100.001,
-              color: "red"
-            },
-            {
-              lte: 8100,
-              color: "#91cc75"
-            }
+            // {
+            //   gt: 8100.001,
+            //   color: "red"
+            // },
+            // {
+            //   lte: 8100,
+            //   color: "#91cc75"
+            // }
           ]
         },
         series: [
           {
             data: [],
+            type: "line",
+            showSymbol: false,
             itemStyle: {
               normal: {
                 lineStyle: {
                   color: "#91cc75"
                 }
               }
-            },
-            type: "line",
-            showSymbol: false
+            }
           },
           {
             data: [],
+            type: "line",
+            showSymbol: false,
             itemStyle: {
               normal: {
                 lineStyle: {
-                  color: "#2295d4"
+                  color: "#fac858"
                 }
               }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
+            }
           }
         ]
       },
@@ -876,415 +662,45 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "N·M"
+          name: "mm"
         },
         visualMap: {
           show: false,
           pieces: [
-            {
-              gt: 8100.001,
-              color: "red"
-            },
-            {
-              lte: 8100,
-              color: "#91cc75"
-            }
+            // {
+            //   gt: 8100.001,
+            //   color: "red"
+            // },
+            // {
+            //   lte: 8100,
+            //   color: "#91cc75"
+            // }
           ]
         },
         series: [
           {
             data: [],
+            type: "line",
+            showSymbol: false,
             itemStyle: {
               normal: {
                 lineStyle: {
                   color: "#91cc75"
                 }
               }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#2295d4"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          }
-        ]
-      },
-      option5: {
-        animation: false,
-        title: [
-          {
-            show: false
-          }
-        ],
-        xAxis: {
-          name: "t/s",
-          type: "category",
-          boundaryGap: false,
-          data: [],
-          axisLine: {
-            onZero: false,
-            color: "#666669",
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
             }
           },
-          axisLabel: {
-            interval: 4,
-            textStyle: {
-              color: "#fff"
-            }
-          },
-          splitLine: {
-            lineStyle: {
-              type: "solid",
-              color: "#fff", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          }
-        },
-        yAxis: {
-          axisTick: {
-            show: true
-          },
-          min: value => {
-            return Math.floor(value.min / 10) * 10;
-          },
-          max: value => {
-            return Math.ceil(value.max / 10) * 10;
-          },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: "#ccc0"
-            }
-          },
-          axisLine: {
-            show: true,
-            color: "#666669",
-            nameTextStyle: {
-              fontSize: 5
-            },
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          },
-          axisLabel: {
-            textStyle: {
-              show: true,
-              fontSize: "10"
-            }
-          },
-          type: "value",
-          location: "end",
-          name: "功率/W"
-        },
-        visualMap: {
-          show: false,
-          pieces: [
-            {
-              gt: 8100.001,
-              color: "red"
-            },
-            {
-              lte: 8100,
-              color: "#91cc75"
-            }
-          ]
-        },
-        series: [
           {
             data: [],
+            type: "line",
+            showSymbol: false,
             itemStyle: {
               normal: {
                 lineStyle: {
-                  color: "#91cc75"
+                  color: "#fac858"
                 }
               }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#2295d4"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          }
-        ]
-      },
-      option6: {
-        animation: false,
-        title: [
-          {
-            show: false
-          }
-        ],
-        xAxis: {
-          name: "t/s",
-          type: "category",
-          boundaryGap: false,
-          data: [],
-          axisLine: {
-            onZero: false,
-            color: "#666669",
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
             }
-          },
-          axisLabel: {
-            interval: 4,
-            textStyle: {
-              color: "#fff"
-            }
-          },
-          splitLine: {
-            lineStyle: {
-              type: "solid",
-              color: "#fff", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          }
-        },
-        yAxis: {
-          axisTick: {
-            show: true
-          },
-          min: value => {
-            return Math.floor(value.min / 10) * 10;
-          },
-          max: value => {
-            return Math.ceil(value.max / 10) * 10;
-          },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: "#ccc0"
-            }
-          },
-          axisLine: {
-            show: true,
-            color: "#666669",
-            nameTextStyle: {
-              fontSize: 5
-            },
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          },
-          axisLabel: {
-            textStyle: {
-              show: true,
-              fontSize: "10"
-            }
-          },
-          type: "value",
-          location: "end",
-          name: "温度/℃"
-        },
-        visualMap: {
-          show: false,
-          pieces: [
-            {
-              gt: 8100.001,
-              color: "red"
-            },
-            {
-              lte: 8100,
-              color: "#91cc75"
-            }
-          ]
-        },
-        series: [
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#91cc75"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#2295d4"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
           }
         ]
       },
@@ -1323,6 +739,42 @@ export default {
     };
   },
   methods: {
+    change1(data) {
+      for (let i of this.options1) {
+        if (i.label == data) {
+          this.option1.yAxis.name = i.name;
+          this.refresh1(this.spinfo, this.option1.series[0], i.key);
+          break;
+        }
+      }
+    },
+    change2(data) {
+      for (let i of this.options2) {
+        if (i.label == data) {
+          this.option2.yAxis.name = i.name;
+          this.refresh1(this.spinfo, this.option2.series[0], i.key);
+          break;
+        }
+      }
+    },
+    change3(data) {
+      for (let i of this.options3) {
+        if (i.label == data) {
+          this.option3.yAxis.name = i.name;
+          this.refresh1(this.spinfo, this.option3.series[0], i.key);
+          break;
+        }
+      }
+    },
+    change4(data) {
+      for (let i of this.options4) {
+        if (i.label == data) {
+          this.option4.yAxis.name = i.name;
+          this.refresh1(this.spinfo, this.option4.series[0], i.key);
+          break;
+        }
+      }
+    },
     getData() {
       this.getD();
       this.getRealtime("posinfo", this.posinfo);
@@ -1400,24 +852,6 @@ export default {
       }
       series.data = dataX;
     },
-    change1(data) {
-      for (let i of this.options1) {
-        if (i.label == data) {
-          this.option1.yAxis.name = i.name;
-          this.refresh1(this.spinfo, this.option1.series[0], i.key);
-          break;
-        }
-      }
-    },
-    change2(data) {
-      for (let i of this.options2) {
-        if (i.label == data) {
-          this.option2.yAxis.name = i.name;
-          this.refresh1(this[i.en], this.option2.series[0], i.key);
-          break;
-        }
-      }
-    },
     // 设置x轴坐标
     XF() {
       let x = [];
@@ -1446,110 +880,6 @@ export default {
   }
 };
 </script>
-<style scoped>
-.data_content .fasten_content {
-  height: 260px;
-}
-.data_content .fasten_content .robot_table table {
-  width: 100%;
-  margin-top: 40px;
-  /* border:solid #ffff43 2px; */
-}
+<style>
 
-th {
-  font-size: 25px;
-  font-weight: 600;
-  color: #61d2f7;
-  /* text-align: center; */
-  line-height: 50px;
-  /* border:solid #ffff43 2px; */
-}
-
-td {
-  font-size: 25px;
-  /* font-weight: 600; */
-  color: rgb(245, 241, 241);
-  text-align: left;
-  line-height: 50px;
-  /* border:solid #ffff43 2px; */
-}
-td:nth-child(1),
-td:nth-child(3),
-td:nth-child(5) {
-  width: 23%;
-  font-size: 25px;
-  font-weight: 600;
-  color: #61d2f7;
-  padding-left: 60px;
-  line-height: 50px;
-}
-td:nth-child(2),
-td:nth-child(4) {
-  width: 10%;
-  font-size: 25px;
-  font-weight: 600;
-  padding-left: 60px;
-  line-height: 50px;
-}
-.data_bottom {
-  width: 90%;
-  height: 600px;
-  margin-left: 80px;
-  margin-top: 3%;
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content1 {
-  width: 100%;
-  height: 45%;
-  /* margin-left: -150px; */
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content2 {
-  width: 100%;
-  height: 45%;
-  margin-top: 3%;
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content1 > div {
-  width: 31%;
-  height: 100%;
-  box-sizing: border-box;
-  border: 1px solid #2c58a6;
-  position: relative;
-  box-shadow: 0 0 10px #2c58a6;
-  /* margin-left: -10%; */
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content2 > div {
-  width: 31%;
-  height: 100%;
-  box-sizing: border-box;
-  border: 1px solid #2c58a6;
-  position: relative;
-  box-shadow: 0 0 10px #2c58a6;
-  /* margin-left: -10%; */
-  /* border:solid #ffff43 2px; */
-}
-.data2,
-.data3 {
-  margin-left: 3.5%;
-}
-.data_title {
-  width: 245px;
-  height: 35px;
-  line-height: 33px;
-  background-color: #2c58a6;
-  border-radius: 18px;
-  position: absolute;
-  top: -17px;
-  left: 40%;
-  margin-left: -90px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  box-sizing: border-box;
-  padding-left: 0px;
-  z-index: 1000;
-  text-align: center;
-}
 </style>

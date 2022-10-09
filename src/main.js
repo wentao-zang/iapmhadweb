@@ -15,6 +15,7 @@ import { GridComponent, TooltipComponent } from "echarts/components";
 import jquery from "jquery";
 import "@/assets/css/base.css";
 import "@/assets/css/index.css";
+import "@/assets/css/indexjing.css";
 import "@/assets/css/bootstrap.css";
 import httpRequest from "@/utils/httpRequest";
 
