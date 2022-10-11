@@ -88,7 +88,12 @@ import {
   linearlaserscanning,
   processinformation,
   holeanalysys,
-  locator,
+  lslocator,
+  lxlocator,
+  lqlocator,
+  rslocator,
+  rxlocator,
+  rqlocator,
   test,
   postureanalysys,
   yhsystem
@@ -468,12 +473,37 @@ export default new Router({
           component: holeanalysys
         },
         {
-          path: "yhszhzp/locator",
-          name: "locator",
-          component: locator
+          path: "yhszhzp/locator/lslocator",
+          name: "lslocator",
+          component: lslocator
         },
         {
-          path: "yhszhzp/test",
+          path: "yhszhzp/locator/lxlocator",
+          name: "lxlocator",
+          component: lxlocator
+        },
+        {
+          path: "yhszhzp/locator/lqlocator",
+          name: "lqlocator",
+          component: lqlocator
+        },
+        {
+          path: "yhszhzp/locator/rslocator",
+          name: "rslocator",
+          component: rslocator
+        },
+        {
+          path: "yhszhzp/locator/rxlocator",
+          name: "rxlocator",
+          component: rxlocator
+        },
+        {
+          path: "yhszhzp/locator/rqlocator",
+          name: "rqlocator",
+          component: rqlocator
+        },
+        {
+          path: "yhszhzp/test/lstest",
           name: "test",
           component: test
         },

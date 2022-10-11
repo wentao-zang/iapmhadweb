@@ -42,8 +42,7 @@
             @row-click="editUp"
             highlight-current-row:true
             :header-cell-style="{ textAlign: 'center' }"
-            :cell-style="{ textAlign: 'center' }"
-          >
+            :cell-style="{ textAlign: 'center' }">
             <el-table-column prop="id" label="预紧固件编号" class="item">
             </el-table-column>
             <el-table-column

@@ -5,7 +5,12 @@ export { default as processinformation } from "./machinedrilling/process_informa
 
 export { default as holeanalysys } from "./manalysys/hole_analysys.vue";
 
-export { default as locator } from "./postureadjustment/locator.vue";
+export { default as lslocator } from "./postureadjustment/lslocator.vue";
+export { default as lxlocator } from "./postureadjustment/lxlocator.vue";
+export { default as lqlocator } from "./postureadjustment/lqlocator.vue";
+export { default as rslocator } from "./postureadjustment/rslocator.vue";
+export { default as rxlocator } from "./postureadjustment/rxlocator.vue";
+export { default as rqlocator } from "./postureadjustment/rqlocator.vue";
 export { default as test } from "./postureadjustment/test.vue";
 
 export { default as postureanalysys } from "./panalysys/posture_analysys.vue";

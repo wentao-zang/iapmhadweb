@@ -1,77 +1,15 @@
 <template>
-  <div class="fasten">
+  <div class="leftshang">
     <!-- <div class="tree_content"></div> -->
     <div class="data_content fl">
-      <div class="fasten_content fl t_btn6" style="cursor: pointer">
-        <!--左上十字边框-->
-        <div class="t_line_box">
-          <i class="t_l_line"></i>
-          <i class="l_t_line"></i>
-        </div>
-        <!--右上边框-->
-        <div class="t_line_box">
-          <i class="t_r_line"></i>
-          <i class="r_t_line"></i>
-        </div>
-        <!--左下边框-->
-        <div class="t_line_box">
-          <i class="l_b_line"></i>
-          <i class="b_l_line"></i>
-        </div>
-        <!--右下边框-->
-        <div class="t_line_box">
-          <i class="r_b_line"></i>
-          <i class="b_r_line"></i>
-        </div>
-        <!-- 左上框标题 -->
+      <div class="fasten_content fl">
         <div class="fasten_title">
-          <img
-            style="margin-left:-30px;margin-top:-6px"
-            width="30px"
-            height="30px"
-            src="@/assets/images/HDYMJQRZK/机器人/机器人.png"
-            alt=""
-          />
-          机器人
-        </div>
-        <div class="robot_table t_btn8">
-          <table>
-            <tr>
-              <td>数据条编号</td>
-              <td>{{ productinfo.id }}</td>
-              <td>飞机编号</td>
-              <td>{{ productinfo.aircraftId }}</td>
-              <td>产品内部id</td>
-              <td>{{ productinfo.productNum }}</td>
-            </tr>
-            <tr>
-              <td>工艺流程编号</td>
-              <td>{{ productinfo.taskId }}</td>
-              <td>孔号</td>
-              <td>{{ productinfo.holeId }}</td>
-              <td>位姿状态</td>
-              <td>正常</td>
-            </tr>
-            <tr>
-              <td>位姿X(/mm)</td>
-              <td>{{ posinfo.lastData.x }}</td>
-              <td>位姿Y(/mm)</td>
-              <td>{{ posinfo.lastData.y }}</td>
-              <td>位姿Z(/mm)</td>
-              <td>{{ posinfo.lastData.z }}</td>
-            </tr>
-            <tr>
-              <td>位姿A(/mm)</td>
-              <td>{{ posinfo.lastData.a }}</td>
-              <td>位姿B(/mm)</td>
-              <td>{{ posinfo.lastData.b }}</td>
-              <td>位姿C(/mm)</td>
-              <td>{{ posinfo.lastData.c }}</td>
-            </tr>
-          </table>
+          <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+            src="@/assets/images/HDYMJQRZK/机器人/机器人.png" alt="" />
+          左机翼上壁板吊装
         </div>
       </div>
-      <div class="data_bottom fl">
+      <div class="data_top fl">
         <div class="bottom_content1 fl">
           <div class="data1 fl t_btn6" style="cursor: pointer">
             <!--左上十字边框-->
@@ -96,17 +34,31 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/角度.png"
-                alt=""
-              />
-              机器人各轴角度
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              左机翼上壁板定位器1位置(mm)与承载(kg)
             </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option1" />
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
             </div>
           </div>
           <div class="data2 fl t_btn6" style="cursor: pointer">
@@ -132,53 +84,31 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/加速度.png"
-                alt=""
-              />
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
               机器人各轴加速度
             </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option2" />
-            </div>
-          </div>
-          <div class="data3 fl t_btn6" style="cursor: pointer">
-            <!--左上十字边框-->
-            <div class="t_line_box">
-              <i class="t_l_line"></i>
-              <i class="l_t_line"></i>
-            </div>
-            <!--右上边框-->
-            <div class="t_line_box">
-              <i class="t_r_line"></i>
-              <i class="r_t_line"></i>
-            </div>
-            <!--左下边框-->
-            <div class="t_line_box">
-              <i class="l_b_line"></i>
-              <i class="b_l_line"></i>
-            </div>
-            <!--右下边框-->
-            <div class="t_line_box">
-              <i class="r_b_line"></i>
-              <i class="b_r_line"></i>
-            </div>
-            <!-- 左上框标题 -->
-            <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/电流.png"
-                alt=""
-              />
-              机器人各轴电流
-            </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option3" />
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
             </div>
           </div>
         </div>
@@ -206,17 +136,31 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/移动平台/电机转速.png"
-                alt=""
-              />
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
               机器人各轴转矩
             </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option4" />
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
             </div>
           </div>
           <div class="data2 fl t_btn6" style="cursor: pointer">
@@ -242,17 +186,323 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/功率.png"
-                alt=""
-              />
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
               机器人各轴功率
             </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option5" />
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+        </div>
+        <div class="bottom_content3 fl">
+          <div class="data1 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴角度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div class="data2 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴加速度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+        </div>
+        <div class="bottom_content4 fl">
+          <div class="data1 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴角度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div class="data2 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴加速度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="data_bottom fl">
+        <div class="bottom_content1 fl">
+          <div class="data1 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴角度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div class="data2 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴加速度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+              </el-table>
             </div>
           </div>
           <div class="data3 fl t_btn6" style="cursor: pointer">
@@ -278,17 +528,151 @@
             </div>
             <!-- 左上框标题 -->
             <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/温度.png"
-                alt=""
-              />
-              机器人各轴温度
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴加速度
             </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option6" />
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+        </div>
+        <div class="bottom_content2 fl">
+          <div class="data1 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴角度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div class="data2 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴加速度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div class="data3 fl t_btn6" style="cursor: pointer">
+            <!--左上十字边框-->
+            <div class="t_line_box">
+              <i class="t_l_line"></i>
+              <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+              <i class="t_r_line"></i>
+              <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+              <i class="l_b_line"></i>
+              <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+              <i class="r_b_line"></i>
+              <i class="b_r_line"></i>
+            </div>
+            <!-- 左上框标题 -->
+            <div class="data_title">
+              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
+                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
+              机器人各轴加速度
+            </div>
+            <div class="data_table">
+              <el-table :data="tableData" style="width: 100%; height: 100%;"
+                highlight-current-row:true 
+                :cell-style="{ textAlign: 'center' }">
+                <el-table-column prop="column1">
+                </el-table-column>
+                <el-table-column prop="column2">
+                </el-table-column>
+                <el-table-column prop="column3">
+                </el-table-column>
+                <el-table-column prop="column4">
+                </el-table-column>
+              </el-table>
             </div>
           </div>
         </div>
@@ -301,8 +685,17 @@
 export default {
   components: {},
   data() {
+    let Xc='1';
+    let Yc='1';
+    let Zc='1';
+    let Lx='1';
     //这里存放数据
     return {
+      tableData: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`}
+        ],
       posinfo: {
         //存放处理后的数据
         list: [],
@@ -1447,109 +1840,10 @@ export default {
 };
 </script>
 <style scoped>
-.data_content .fasten_content {
-  height: 260px;
-}
 .data_content .fasten_content .robot_table table {
   width: 100%;
   margin-top: 40px;
   /* border:solid #ffff43 2px; */
 }
 
-th {
-  font-size: 25px;
-  font-weight: 600;
-  color: #61d2f7;
-  /* text-align: center; */
-  line-height: 50px;
-  /* border:solid #ffff43 2px; */
-}
-
-td {
-  font-size: 25px;
-  /* font-weight: 600; */
-  color: rgb(245, 241, 241);
-  text-align: left;
-  line-height: 50px;
-  /* border:solid #ffff43 2px; */
-}
-td:nth-child(1),
-td:nth-child(3),
-td:nth-child(5) {
-  width: 23%;
-  font-size: 25px;
-  font-weight: 600;
-  color: #61d2f7;
-  padding-left: 60px;
-  line-height: 50px;
-}
-td:nth-child(2),
-td:nth-child(4) {
-  width: 10%;
-  font-size: 25px;
-  font-weight: 600;
-  padding-left: 60px;
-  line-height: 50px;
-}
-.data_bottom {
-  width: 90%;
-  height: 600px;
-  margin-left: 80px;
-  margin-top: 3%;
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content1 {
-  width: 100%;
-  height: 45%;
-  /* margin-left: -150px; */
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content2 {
-  width: 100%;
-  height: 45%;
-  margin-top: 3%;
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content1 > div {
-  width: 31%;
-  height: 100%;
-  box-sizing: border-box;
-  border: 1px solid #2c58a6;
-  position: relative;
-  box-shadow: 0 0 10px #2c58a6;
-  /* margin-left: -10%; */
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content2 > div {
-  width: 31%;
-  height: 100%;
-  box-sizing: border-box;
-  border: 1px solid #2c58a6;
-  position: relative;
-  box-shadow: 0 0 10px #2c58a6;
-  /* margin-left: -10%; */
-  /* border:solid #ffff43 2px; */
-}
-.data2,
-.data3 {
-  margin-left: 3.5%;
-}
-.data_title {
-  width: 245px;
-  height: 35px;
-  line-height: 33px;
-  background-color: #2c58a6;
-  border-radius: 18px;
-  position: absolute;
-  top: -17px;
-  left: 40%;
-  margin-left: -90px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  box-sizing: border-box;
-  padding-left: 0px;
-  z-index: 1000;
-  text-align: center;
-}
 </style>

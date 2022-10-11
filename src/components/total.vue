@@ -233,17 +233,54 @@ export default {
             {
               id: 22,
               label: "调姿控制系统",
-              children: [
+              children:[
                 {
                   id: 221,
-                  label: "定位器坐标",
-                  link: "/total/yhszhzp/locator"
+                  label: "定位器实时坐标",
+                  children: [
+                {
+                  id: 2211,
+                  label: "左机翼上壁板吊装",
+                  link: "/total/yhszhzp/locator/lslocator"
+                },
+                {
+                  id: 2212,
+                  label: "左机翼下壁板吊装",
+                  link: "/total/yhszhzp/locator/lxlocator"
+                },
+                {
+                  id: 2213,
+                  label: "左前缘吊装",
+                  link: "/total/yhszhzp/locator/lqlocator"
+                },
+                {
+                  id: 2214,
+                  label: "右机翼上壁板吊装",
+                  link: "/total/yhszhzp/locator/rslocator"
+                },
+                {
+                  id: 2215,
+                  label: "右机翼下壁板吊装",
+                  link: "/total/yhszhzp/locator/rxlocator"
+                },
+                {
+                  id: 2216,
+                  label: "右前缘吊装",
+                  link: "/total/yhszhzp/locator/rqlocator"
+                }
+              ]
                 },
                 {
                   id: 222,
                   label: "产品位姿测量系统",
-                  link: "/total/yhszhzp/test"
-                },
+                  children:[
+                  {
+                  id: 2221,
+                  label: "产品位姿测量系统",
+                  link: "/total/yhszhzp/test/lstest"
+                }
+                  ]
+                }
               ]
             },
             {
