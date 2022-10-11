@@ -1,5 +1,5 @@
 <template>
-  <div class="fasten">
+  <div class="effector">
     <!-- <div class="tree_content"></div> -->
     <div class="data_content fl">
       <div class="zdzxq fl t_btn6" style="cursor: pointer">
@@ -186,10 +186,10 @@
                 style="margin-left:-30px;margin-top:-6px"
                 width="30px"
                 height="30px"
-                src="@/assets/images/HDYMJQRZK/末端执行器/压脚.png"
+                src="@/assets/images/HDYMJQRZK/机器人/温度.png"
                 alt=""
               />
-              压脚位置
+              温度
             </div>
             <div class="chartDiv">
               <v-chart class="chart" :option="option3" />
@@ -224,10 +224,10 @@
                 style="margin-left:-30px;margin-top:-6px"
                 width="30px"
                 height="30px"
-                src="@/assets/images/HDYMJQRZK/末端执行器/T放孔.png"
+                src="@/assets/images/HDYMJQRZK/机器人/电流.png"
                 alt=""
               />
-              孔径窝深信息
+              电流
             </div>
             <div class="chartDiv">
               <v-chart class="chart" :option="option4" />
@@ -260,10 +260,10 @@
                 style="margin-left:-30px;margin-top:-6px"
                 width="30px"
                 height="30px"
-                src="@/assets/images/HDYMJQRZK/末端执行器/传感器.png"
+                src="@/assets/images/HDYMJQRZK/移动平台/电机转速.png"
                 alt=""
               />
-              位移传感器
+              转矩
             </div>
             <div class="chartDiv">
               <v-chart class="chart" :option="option5" />
@@ -296,10 +296,10 @@
                 style="margin-left:-30px;margin-top:-6px"
                 width="30px"
                 height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/角度.png"
+                src="@/assets/images/HDYMJQRZK/机器人/功率.png"
                 alt=""
               />
-              方向角
+              功率
             </div>
             <div class="chartDiv">
               <v-chart class="chart" :option="option6" />
@@ -348,22 +348,21 @@ export default {
         lastId: 0,
         lastTime: 0
       },
-      value1: "主轴转速",
-      value2: "进给轴位置",
+      value1: "X进给轴位置",
+      value2: "主轴转速",
       options1: [
-        { label: "主轴转速", name: "转速/rpm", key: "rotvel" },
-        { label: "主轴电流", name: "电流/A", key: "current" },
-        { label: "主轴功率", name: "功率/W", key: "power" },
-        { label: "主轴转矩", name: "N·M", key: "torque" }
+        { label: "X进给轴位置", name: "mm", key: "rotvel" },
+        { label: "Y进给轴位置", name: "mm", key: "current" },
+        { label: "Z进给轴位置", name: "mm", key: "power" },
       ],
       options2: [
         {
-          label: "进给轴位置",
-          name: "mm",
+          label: "主轴转速",
+          name: "转速/rmp",
           key: "pos",
           en: "spinfo"
         },
-        { label: "工位切换轴位置", name: "mm", key: "x11", en: "posinfo" }
+        { label: "主轴速度", name: "速度/m/s", key: "x11", en: "posinfo" }
       ],
       option1: {
         animation: false,
@@ -644,7 +643,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "mm"
+          name: "温度/℃"
         },
         visualMap: {
           show: false,
@@ -739,7 +738,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "mm"
+          name: "电流/A"
         },
         visualMap: {
           show: false,
@@ -852,7 +851,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "mm"
+          name: "扭矩/N·M"
         },
         visualMap: {
           show: false,
@@ -989,7 +988,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "mm/s"
+          name: "功率/W"
         },
         visualMap: {
           show: false,

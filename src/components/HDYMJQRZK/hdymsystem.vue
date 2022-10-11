@@ -1146,66 +1146,6 @@ export default {
             type: "line",
             showSymbol: false,
           },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#2295d4",
-                },
-              },
-            },
-            type: "line",
-            showSymbol: false,
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543",
-                },
-              },
-            },
-            type: "line",
-            showSymbol: false,
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646",
-                },
-              },
-            },
-            type: "line",
-            showSymbol: false,
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d",
-                },
-              },
-            },
-            type: "line",
-            showSymbol: false,
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b",
-                },
-              },
-            },
-            type: "line",
-            showSymbol: false,
-          },
         ],
       },
       option_11: {
@@ -1423,7 +1363,7 @@ export default {
       url: this.$http.adornUrl('amehdym/holeschedule/getlast'),
       method: 'get',
       }).then(({ data }) => {
-        // console.log("schedule",data);
+        console.log("schedule",data);
         this.strDate11 = data.holeSchedule + "%";
       })
     },
@@ -1618,13 +1558,13 @@ export default {
         entity.listCache = data;
         // console.log("listcahe",entity.listCache);
         let len = entity.listCache.length;
-        console.log("len",len);//300,0,0
+        // console.log("len",len);//300,0,0
         if (len != 0) {
           entity.lastData = entity.listCache[len - 1];
           entity.lastId = entity.lastData.id;
-          console.log("entity.lastId",entity.lastId);//56359 56359
+          // console.log("entity.lastId",entity.lastId);//56359 56359
           entity.lastTime = Date.parse(new Date(entity.lastData.time)) / 1000;
-          console.log("entity.lastTime",entity.lastTime);
+          // console.log("entity.lastTime",entity.lastTime);
         }
         // console.log("this.holemeasure",this.holemeasure);
         // console.log("entity.lastId",entity.lastId);//56359 56359
@@ -1633,7 +1573,7 @@ export default {
     refresh0() {
       this.refresh(this.axisinfo);
       this.refresh1(this.axisinfo, this.option_6.series[0], "current1");
-      console.log("refresh0");
+      // console.log("refresh0");
     },
     refresh(entity) {
       // // console.log("this.holemeasure",this.holemeasure);
@@ -1643,13 +1583,13 @@ export default {
       // console.log("entity.lastData",entity.lastData);
       // console.log("entity.listCache",entity.listCache);
       let li = entity.list.concat(entity.listCache);
-      console.log("entity.list",entity.list);
-      console.log("li",li);
+      // console.log("entity.list",entity.list);
+      // console.log("li",li);
       let len = li.length;
       for (let i = 0; i < len; i++) {
         if (entity.lastTime - Date.parse(new Date(li[i].time)) / 1000 <= 40) {
           entity.list = li.slice(i);
-          console.log("slice",entity.list);
+          // console.log("slice",entity.list);
           entity.listCache = [];
           break;
         }
@@ -1676,7 +1616,7 @@ export default {
         }
       }
       yData.data = dataX;
-      console.log("datax",dataX);
+      // console.log("datax",dataX);
     },
     // 
     // xunhuan(yData) {
