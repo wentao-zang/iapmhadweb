@@ -219,6 +219,17 @@ export default {
   data() {
     //这里存放数据
     return {
+      axisinfo:{
+        //存放处理后的数据
+        list: [],
+        //存放后端穿过来的数据
+        listCache: [],
+        lastData: {},
+        lastId: 0,
+        lastTime: 0
+      },
+      key1:'',
+      key2:'',
       value1: "平台X轴速度",
       value2: "平台Y轴速度",
       value3: "工位切换轴速度",
@@ -232,7 +243,10 @@ export default {
         lastId: 0,
         lastTime: 0
       },
-      productinfo: {},
+      productinfo: {
+        aircraftId:'',
+        lastId: 0
+      },
       footpressinfo: {
         //存放处理后的数据
         list: [],
@@ -243,14 +257,14 @@ export default {
         lastTime: 0
       },
       options1: [
-        { label: "平台X轴速度", name: "速度/m/s", key: "rotvel" },
-        { label: "平台X轴位移", name: "位移/m", key: "current" },
-        { label: "平台X轴温度", name: "温度/℃", key: "power" },
-        { label: "平台X轴功率", name: "功率/W", key: "torque" },
-        { label: "平台X轴电流", name: "电流/A", key: "torque" }
+        { label: "平台X轴速度", name: "速度/m/s", key: "vel1" },
+        { label: "平台X轴位移", name: "位移/m", key: "x1" },
+        { label: "平台X轴温度", name: "温度/℃", key: "temp1" },
+        { label: "平台X轴功率", name: "功率/W", key: "power1" },
+        { label: "平台X轴电流", name: "电流/A", key: "current1" }
       ],
       options2: [
-        { label: "平台Y轴速度", name: "速度/m/s", key: "rotvel" },
+        { label: "平台Y轴速度", name: "速度/m/s", key: "vel2" },
         { label: "平台Y轴位移", name: "位移/m", key: "current" },
         { label: "平台Y轴温度", name: "温度/℃", key: "power" },
         { label: "平台Y轴功率", name: "功率/W", key: "torque" },
@@ -292,7 +306,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -739,11 +753,24 @@ export default {
     };
   },
   methods: {
+    getaxisinfo() {
+      this.$http({
+        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
+        method: "get"
+      }).then(({ data }) => {
+        // console.log("axisinfo",data);
+        this.productinfo.aircraftId = data.aircraftId;
+      });
+    },
     change1(data) {
+      // console.log("cnsdjbcsjdc");
       for (let i of this.options1) {
         if (i.label == data) {
+          console.log("cnsdjbcsjdc",data);
+          this.key1 = i.key;
           this.option1.yAxis.name = i.name;
-          this.refresh1(this.spinfo, this.option1.series[0], i.key);
+          this.refresh1(this.axisinfo, this.option1.series[0], i.key);
+          // this.getData();
           break;
         }
       }
@@ -751,8 +778,9 @@ export default {
     change2(data) {
       for (let i of this.options2) {
         if (i.label == data) {
+          this.key2 = i.key;
           this.option2.yAxis.name = i.name;
-          this.refresh1(this.spinfo, this.option2.series[0], i.key);
+          this.refresh1(this.axisinfo, this.option2.series[0], i.key);
           break;
         }
       }
@@ -776,13 +804,13 @@ export default {
       }
     },
     getData() {
-      this.getD();
-      this.getRealtime("posinfo", this.posinfo);
+      // this.getD();
+      this.getRealtime("axisinfo", this.axisinfo);
       this.refresh0();
     },
     getD() {
       this.$http({
-        url: this.$http.adornUrl("hdym/productinfo/getLast"),
+        url: this.$http.adornUrl("yhmh/axisinfo/getLast"),
         method: "get"
       }).then(({ data }) => {
         this.productinfo = data;
@@ -791,7 +819,7 @@ export default {
     getRealtime(link, entity) {
       //读取实时表数据
       this.$http({
-        url: this.$http.adornUrl("hdym/" + link + "/getLi/" + entity.lastId),
+        url: this.$http.adornUrl("yhmh/" + link + "/getli/" + entity.lastId),
         method: "get"
       }).then(({ data }) => {
         entity.listCache = data;
@@ -816,18 +844,9 @@ export default {
       }
     },
     refresh0() {
-      this.refresh(this.posinfo);
-      this.refresh1(this.posinfo, this.option1.series[0], "a1");
-      this.refresh1(this.posinfo, this.option1.series[1], "a2");
-      this.refresh1(this.posinfo, this.option1.series[2], "a3");
-      this.refresh1(this.posinfo, this.option1.series[3], "a4");
-      this.refresh1(this.posinfo, this.option1.series[4], "a5");
-      this.refresh1(this.posinfo, this.option1.series[5], "a6");
-      this.option2.series = this.option1.series;
-      this.option3.series = this.option1.series;
-      this.option4.series = this.option1.series;
-      this.option5.series = this.option1.series;
-      this.option6.series = this.option1.series;
+      this.refresh(this.axisinfo);
+      this.refresh1(this.axisinfo, this.option1.series[0], this.key1);
+      this.refresh1(this.axisinfo, this.option2.series[0], this.key2);
     },
     // 设置y轴数据
     refresh1(entity, series, key) {
@@ -855,22 +874,21 @@ export default {
     // 设置x轴坐标
     XF() {
       let x = [];
-      for (let i = 0; i <= 40; i += 5) {
+      for (let i = 40; i>=0; i-=10) {
         x[i] = i;
       }
       this.option1.xAxis.data = x;
-      this.option2.xAxis.data = x;
-      this.option3.xAxis.data = x;
-      this.option4.xAxis.data = x;
-      this.option5.xAxis.data = x;
-      this.option6.xAxis.data = x;
     }
   },
   mounted() {
     this.$nextTick(() => {
+      // console.log("mouted");
+      this.change1("平台X轴速度");
+      this.change2("平台Y轴速度");
       this.XF();
     });
     const timer = setInterval(() => {
+      this.getaxisinfo();
       this.getData();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
