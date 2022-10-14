@@ -656,7 +656,8 @@ tbody tr:nth-child(33) {
     width: 98%;
     height: 100%;
     text-align: center;
-    margin-left: 1%
+    margin-left: 1%;
+    /* border:solid #ffff43 2px; */
 }
 
 .el-tree-node__label {

@@ -122,7 +122,7 @@
     border-radius: 20px;
     text-align: center;
   }
-  .effector .data_content .mdzxq {
+.effector .data_content .mdzxq {
     width: 90%;
     height: 18%;
     box-sizing: border-box;
@@ -259,4 +259,90 @@
   background-color: transparent;
   border-radius: 20px;
   text-align: center;
+}
+.laserscan .data_content .content1 {
+  width: 90%;
+  height: 18%;
+  box-sizing: border-box;
+  border: 1px solid #2c58a6;
+  position: relative;
+  box-shadow: 0 0 10px #2c58a6;
+  margin-top: 10px;
+  margin-left: 5%;
+  /* border:solid #ffff43 2px; */
+}
+.laserscan .content1 .robot_table table {
+  width: 100%;
+  margin-top: 40px;
+  /* border:solid #ffff43 2px; */
+}
+.laserscan th {
+  font-size: 25px;
+  font-weight: 600;
+  color: #61d2f7;
+  /* text-align: center; */
+  line-height: 50px;
+  /* border:solid #ffff43 2px; */
+}
+.laserscan td {
+  font-size: 25px;
+  /* font-weight: 600; */
+  color: rgb(245, 241, 241);
+  text-align: left;
+  line-height: 50px;
+  /* border:solid #ffff43 2px; */
+}
+.laserscan td:nth-child(1),
+.laserscan td:nth-child(3),
+.laserscan td:nth-child(5) {
+  width: 23%;
+  font-size: 25px;
+  font-weight: 600;
+  color: #61d2f7;
+  padding-left: 60px;
+  line-height: 50px;
+}
+.laserscan td:nth-child(2),
+.laserscan td:nth-child(4) {
+  width: 10%;
+  font-size: 25px;
+  font-weight: 600;
+  padding-left: 60px;
+  line-height: 50px;
+}
+.laserscan .content2 {
+  width: 90%;
+  height: 35%;
+  margin-left: 80px;
+  margin-top: 2%;
+  border:solid #43ff69 2px;
+}
+.laserscan .content3 {
+  width: 90%;
+  height: 35%;
+  margin-left: 80px;
+  margin-top: 2%;
+  /* border:solid #43ff69 2px; */
+}
+.laserscan .data_content .content3 > div {
+  width: 31%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #2c58a6;
+  position: relative;
+  box-shadow: 0 0 10px #2c58a6;
+  /* margin-left: -10%; */
+  /* border:solid #ffff43 2px; */
+}
+.laserscan .data2,
+.laserscan .data3 {
+  margin-left: 3.5%;
+}
+.laserscan .chartDiv {
+  width: 98%;
+  height: 100%;
+  text-align: center;
+  margin-left: 1%;
+  margin-top:  8%;
+  /* border:solid #ffff43 2px; */
 }
