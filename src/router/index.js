@@ -91,9 +91,13 @@ import {
   lslocator,
   lxlocator,
   lqlocator,
+  lhlocator,
+  lhflocator,
   rslocator,
   rxlocator,
   rqlocator,
+  rhlocator,
+  rhflocator,
   test,
   postureanalysys,
   yhsystem
@@ -488,6 +492,16 @@ export default new Router({
           component: lqlocator
         },
         {
+          path: "yhszhzp/locator/lhlocator",
+          name: "lhlocator",
+          component: lhlocator
+        },
+        {
+          path: "yhszhzp/locator/lhflocator",
+          name: "lhflocator",
+          component: lhflocator
+        },
+        {
           path: "yhszhzp/locator/rslocator",
           name: "rslocator",
           component: rslocator
@@ -501,6 +515,16 @@ export default new Router({
           path: "yhszhzp/locator/rqlocator",
           name: "rqlocator",
           component: rqlocator
+        },
+        {
+          path: "yhszhzp/locator/rhlocator",
+          name: "rhlocator",
+          component: rhlocator
+        },
+        {
+          path: "yhszhzp/locator/rhflocator",
+          name: "rhflocator",
+          component: rhflocator
         },
         {
           path: "yhszhzp/test/lstest",
