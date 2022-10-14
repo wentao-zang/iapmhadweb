@@ -255,18 +255,38 @@ export default {
                 },
                 {
                   id: 2214,
+                  label: "左后缘吊装",
+                  link: "/total/yhszhzp/locator/lhlocator"
+                },
+                {
+                  id: 2215,
+                  label: "左侧后缘辅助支撑",
+                  link: "/total/yhszhzp/locator/lhflocator"
+                },
+                {
+                  id: 2216,
                   label: "右机翼上壁板吊装",
                   link: "/total/yhszhzp/locator/rslocator"
                 },
                 {
-                  id: 2215,
+                  id: 2217,
                   label: "右机翼下壁板吊装",
                   link: "/total/yhszhzp/locator/rxlocator"
                 },
                 {
-                  id: 2216,
+                  id: 2218,
                   label: "右前缘吊装",
                   link: "/total/yhszhzp/locator/rqlocator"
+                },
+                {
+                  id: 2219,
+                  label: "右后缘吊装",
+                  link: "/total/yhszhzp/locator/rhlocator"
+                },
+                {
+                  id: 2220,
+                  label: "右侧后缘辅助支撑",
+                  link: "/total/yhszhzp/locator/rhflocator"
                 }
               ]
                 },

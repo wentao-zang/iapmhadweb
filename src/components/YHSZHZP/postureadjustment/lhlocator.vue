@@ -1,12 +1,12 @@
 <template>
-  <div class="leftshang">
+  <div class="lefthou">
     <!-- <div class="tree_content"></div> -->
     <div class="data_content fl">
       <div class="fasten_content fl">
         <div class="fasten_title">
           <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
             src="@/assets/images/HDYMJQRZK/机器人/机器人.png" alt="" />
-          左机翼下壁板吊装
+          左侧后缘吊装
         </div>
       </div>
       <div class="data_top fl">
@@ -36,7 +36,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器1位置(mm)与承载(kg)
+              后缘主定位器1位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData1" style="width: 100%; height: 100%;"
@@ -86,7 +86,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器2位置(mm)与承载(kg)
+              后缘主定位器2位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData2" style="width: 100%; height: 100%;"
@@ -138,7 +138,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器3位置(mm)与承载(kg)
+              后缘主定位器3位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData3" style="width: 100%; height: 100%;"
@@ -188,7 +188,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器4位置(mm)与承载(kg)
+              后缘主定位器4位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData4" style="width: 100%; height: 100%;"
@@ -240,7 +240,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器5位置(mm)与承载(kg)
+              后缘主定位器5位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData5" style="width: 100%; height: 100%;"
@@ -290,7 +290,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器6位置(mm)与承载(kg)
+              后缘主定位器6位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData6" style="width: 100%; height: 100%;"
@@ -342,7 +342,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器7位置(mm)与承载(kg)
+              后缘主定位器7位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData7" style="width: 100%; height: 100%;"
@@ -392,7 +392,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板定位器8位置(mm)与承载(kg)
+              后缘主定位器8位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData8" style="width: 100%; height: 100%;"
@@ -418,9 +418,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="data_bottom fl">
-        <div class="bottom_content1 fl">
+        <div class="bottom_content5 fl">
           <div class="data1 fl t_btn6" style="cursor: pointer">
             <!--左上十字边框-->
             <div class="t_line_box">
@@ -446,7 +444,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板底座1位置(mm)
+              后缘主定位器9位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData9" style="width: 100%; height: 100%;"
@@ -460,6 +458,14 @@
                 </el-table-column>
                 <el-table-column prop="column4">
                 </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
+                </el-table-column>
               </el-table>
             </div>
           </div>
@@ -488,7 +494,7 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板底座2位置(mm)
+              后缘主定位器10位置(mm)与承载(kg)
             </div>
             <div class="data_table">
               <el-table :data="tableData10" style="width: 100%; height: 100%;"
@@ -502,53 +508,19 @@
                 </el-table-column>
                 <el-table-column prop="column4">
                 </el-table-column>
-              </el-table>
-            </div>
-          </div>
-          <div class="data3 fl t_btn6" style="cursor: pointer">
-            <!--左上十字边框-->
-            <div class="t_line_box">
-              <i class="t_l_line"></i>
-              <i class="l_t_line"></i>
-            </div>
-            <!--右上边框-->
-            <div class="t_line_box">
-              <i class="t_r_line"></i>
-              <i class="r_t_line"></i>
-            </div>
-            <!--左下边框-->
-            <div class="t_line_box">
-              <i class="l_b_line"></i>
-              <i class="b_l_line"></i>
-            </div>
-            <!--右下边框-->
-            <div class="t_line_box">
-              <i class="r_b_line"></i>
-              <i class="b_r_line"></i>
-            </div>
-            <!-- 左上框标题 -->
-            <div class="data_title">
-              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板底座3位置(mm)
-            </div>
-            <div class="data_table">
-              <el-table :data="tableData11" style="width: 100%; height: 100%;"
-                highlight-current-row:true 
-                :cell-style="{ textAlign: 'center' }">
-                <el-table-column prop="column1">
+                <el-table-column prop="column5">
                 </el-table-column>
-                <el-table-column prop="column2">
+                <el-table-column prop="column6">
                 </el-table-column>
-                <el-table-column prop="column3">
+                <el-table-column prop="column7">
                 </el-table-column>
-                <el-table-column prop="column4">
+                <el-table-column prop="column8">
                 </el-table-column>
               </el-table>
             </div>
           </div>
         </div>
-        <div class="bottom_content2 fl">
+        <div class="bottom_content6 fl">
           <div class="data1 fl t_btn6" style="cursor: pointer">
             <!--左上十字边框-->
             <div class="t_line_box">
@@ -574,10 +546,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板底座4位置(mm)
+              后缘主定位器11位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData12" style="width: 100%; height: 100%;"
+              <el-table :data="tableData11" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -587,6 +559,14 @@
                 <el-table-column prop="column3">
                 </el-table-column>
                 <el-table-column prop="column4">
+                </el-table-column>
+                <el-table-column prop="column5">
+                </el-table-column>
+                <el-table-column prop="column6">
+                </el-table-column>
+                <el-table-column prop="column7">
+                </el-table-column>
+                <el-table-column prop="column8">
                 </el-table-column>
               </el-table>
             </div>
@@ -616,10 +596,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板底座5位置(mm)
+              后缘主定位器12位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData13" style="width: 100%; height: 100%;"
+              <el-table :data="tableData12" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -630,47 +610,13 @@
                 </el-table-column>
                 <el-table-column prop="column4">
                 </el-table-column>
-              </el-table>
-            </div>
-          </div>
-          <div class="data3 fl t_btn6" style="cursor: pointer">
-            <!--左上十字边框-->
-            <div class="t_line_box">
-              <i class="t_l_line"></i>
-              <i class="l_t_line"></i>
-            </div>
-            <!--右上边框-->
-            <div class="t_line_box">
-              <i class="t_r_line"></i>
-              <i class="r_t_line"></i>
-            </div>
-            <!--左下边框-->
-            <div class="t_line_box">
-              <i class="l_b_line"></i>
-              <i class="b_l_line"></i>
-            </div>
-            <!--右下边框-->
-            <div class="t_line_box">
-              <i class="r_b_line"></i>
-              <i class="b_r_line"></i>
-            </div>
-            <!-- 左上框标题 -->
-            <div class="data_title">
-              <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              左机翼下壁板大平台位置(mm)
-            </div>
-            <div class="data_table">
-              <el-table :data="tableData14" style="width: 100%; height: 100%;"
-                highlight-current-row:true 
-                :cell-style="{ textAlign: 'center' }">
-                <el-table-column prop="column1">
+                <el-table-column prop="column5">
                 </el-table-column>
-                <el-table-column prop="column2">
+                <el-table-column prop="column6">
                 </el-table-column>
-                <el-table-column prop="column3">
+                <el-table-column prop="column7">
                 </el-table-column>
-                <el-table-column prop="column4">
+                <el-table-column prop="column8">
                 </el-table-column>
               </el-table>
             </div>
@@ -738,34 +684,24 @@ export default {
         {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
         ],
       tableData9: [
-        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
-        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
-        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
         ],
       tableData10: [
-        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
-        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
-        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
         ],
       tableData11: [
-        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
-        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
-        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
         ],
       tableData12: [
-        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
-        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
-        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
-        ],
-      tableData13: [
-        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
-        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
-        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
-        ],
-      tableData14: [
-        {column1:'Zc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
-        {column1:'△Z',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
-        {column1:'Zt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
         ],
       posinfo: {
         //存放处理后的数据

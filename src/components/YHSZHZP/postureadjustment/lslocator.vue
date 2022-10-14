@@ -39,7 +39,7 @@
               左机翼上壁板定位器1位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData1" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -86,10 +86,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴加速度
+              左机翼上壁板定位器2位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData2" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -138,10 +138,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴转矩
+              左机翼上壁板定位器3位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData3" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -188,10 +188,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴功率
+              左机翼上壁板定位器4位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData4" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -240,10 +240,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴角度
+              左机翼上壁板定位器5位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData5" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -290,10 +290,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴加速度
+              左机翼上壁板定位器6位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData6" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -342,10 +342,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴角度
+              左机翼上壁板定位器7位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData7" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -392,10 +392,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴加速度
+              左机翼上壁板定位器8位置(mm)与承载(kg)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData8" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -446,10 +446,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴角度
+              左机翼上壁板底座1位置(mm)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData9" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -488,10 +488,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴加速度
+              左机翼上壁板底座2位置(mm)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData10" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -530,10 +530,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴加速度
+              左机翼上壁板底座3位置(mm)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData11" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -574,10 +574,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴角度
+              左机翼上壁板底座4位置(mm)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData12" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -616,10 +616,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴加速度
+              左机翼上壁板底座5位置(mm)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData13" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -658,10 +658,10 @@
             <div class="data_title">
               <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png" alt="" />
-              机器人各轴加速度
+              左机翼上壁板大平台位置(mm)
             </div>
             <div class="data_table">
-              <el-table :data="tableData" style="width: 100%; height: 100%;"
+              <el-table :data="tableData14" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -697,10 +697,75 @@ export default {
         locay1:'',
         locaz1:''
       },
-      tableData: [
+      tableData1: [
         {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData2: [
         {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
-        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`}
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData3:[
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData4: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData5: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData6: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData7: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData8: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
+        ],
+      tableData9: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        ],
+      tableData10: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        ],
+      tableData11: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        ],
+      tableData12: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        ],
+      tableData13: [
+        {column1:'Xc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
+        {column1:'△X',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
+        {column1:'Xt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
+        ],
+      tableData14: [
+        {column1:'Zc',column2:`${Xc}`,column3:'Zc',column4:`${Yc}`},
+        {column1:'△Z',column2:`${Xc}`,column3:'△Z',column4:`${Yc}`},
+        {column1:'Zt',column2:`${Xc}`,column3:'Zt',column4:`${Yc}`}
         ],
       posinfo: {
         //存放处理后的数据
@@ -1687,38 +1752,6 @@ export default {
           }
         ]
       },
-      tableData1: [
-        {
-          name: "数据条编号",
-          data: "Number1"
-        },
-        {
-          name: "孔号",
-          data: "Hole1"
-        }
-      ],
-      tableData2: [
-        {
-          name: "飞机编号",
-          data: "Plane1"
-        },
-        {
-          name: "刀具编号",
-          data: "CEDrill1"
-        }
-      ],
-      tableData3: [
-        {
-          name: "产品内部id",
-          data: "id1"
-        }
-      ],
-      tableData4: [
-        {
-          name: "工艺流程编号",
-          data: "Process1"
-        }
-      ]
     };
   },
   methods: {
