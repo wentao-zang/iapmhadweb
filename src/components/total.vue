@@ -201,6 +201,7 @@ export default {
           ]
         },
         {
+          id:2,
           label: "机翼翼盒数字化装配系统",
           link: "/total/yhszhzp/yhsystem",
           children: [
@@ -322,171 +323,33 @@ export default {
           ]
         },
         {
+          id: 3,
           label: "机翼大部件对接系统",
+          link: "/total/jydbjdj/dbjsystem",
           children: [
             {
-              id: 211,
-              label: "装配过程分析与决策",
+              id: 31,
+              label: "机翼吊装",
               children: [
                 {
-                  label: "装配质量分析",
-                  id: 1211,
-                  link: "/total/hdymzkjqrxt/assemblyState"
+                  label: "左外翼吊装",
+                  id: 311,
+                  link: "/total/jydbjdj/winghoist/lwhoist"
                 },
                 {
-                  label: "设备状态监控",
-                  id: 112,
-                  link: "/total/hdymzkjqrxt/deviceState"
+                  label: "右外翼吊装",
+                  id: 312,
+                  link: "/total/jydbjdj/winghoist/rwhoist"
                 },
                 {
-                  label: "产品加工进度",
-                  id: 113,
-                  link: "/total/hdymzkjqrxt/productState"
+                  label: "机翼吊装",
+                  id: 313,
+                  link: "/total/jydbjdj/winghoist/winghoist"
                 }
               ]
             },
-            {
-              id: 12,
-              label: "系统设备",
-              children: [
-                {
-                  id: 121,
-                  label: "终端执行器",
-                  link: "/total/hdymzkjqrxt/ZDZXQ"
-                },
-                { id: 122, label: "机器人", link: "/total/hdymzkjqrxt/robot" },
-                { id: 123, label: "移动平台", link: "/total/hdymzkjqrxt/YDPT" }
-              ]
-            },
-            {
-              id: 13,
-              label: "工艺参数",
-              children: [
-                {
-                  id: 131,
-                  label: "紧固件表",
-                  link: "/total/hdymzkjqrxt/fasten"
-                },
-                {
-                  id: 132,
-                  label: "一般孔加工工艺参数表",
-                  link: "/total/hdymzkjqrxt/generalHoleProcess"
-                },
-                {
-                  id: 133,
-                  label: "冷挤压孔加工工艺参数表",
-                  link: "/total/hdymzkjqrxt/coldExtrusionHoleProcess"
-                },
-                {
-                  id: 134,
-                  label: "预连接孔加工工艺参数表",
-                  link: "/total/hdymzkjqrxt/fastenHoleProcess"
-                },
-                {
-                  id: 135,
-                  label: "描点工艺参数表",
-                  link: "/total/hdymzkjqrxt/pointTracingProcess"
-                },
-                {
-                  id: 136,
-                  label: "孔径测量表",
-                  link: "/total/hdymzkjqrxt/holeMeasurement"
-                },
-                {
-                  id: 137,
-                  label: "冷挤压孔刀具表",
-                  link: "/total/hdymzkjqrxt/coldExtrusionHoleTool"
-                },
-                {
-                  id: 138,
-                  label: "非冷挤压孔刀具表",
-                  link: "/total/hdymzkjqrxt/nonColdExtrusionHoleTool"
-                },
-                {
-                  id: 139,
-                  label: "工艺参数库修改日志",
-                  link: "/total/hdymzkjqrxt/modifyLog"
-                }
-              ]
-            },
-            {
-              id: 14,
-              label: "系统信息表",
-              children: [
-                {
-                  id: 141,
-                  label: "系统组成表",
-                  link: "/total/hdymzkjqrxt/hdymjqrzkxtStructure"
-                },
-                {
-                  id: 142,
-                  label: "机器人规格信息表",
-                  link: "/total/hdymzkjqrxt/jqrSpecification"
-                },
-                {
-                  id: 143,
-                  label: "制孔终端执行器规格信息表",
-                  link: "/total/hdymzkjqrxt/zkzdzxqSpecification"
-                },
-                {
-                  id: 144,
-                  label: "移动平台规格信息表",
-                  link: "/total/hdymzkjqrxt/ydptSpecification"
-                },
-                {
-                  id: 145,
-                  label: "刀库规格信息表",
-                  link: "/total/hdymzkjqrxt/dkSpecification"
-                },
-                {
-                  id: 146,
-                  label: "进给装置规格信息",
-                  link: "/total/hdymzkjqrxt/jgzzSpecification"
-                },
-                {
-                  id: 147,
-                  label: "压脚装置规格信息表",
-                  link: "/total/hdymzkjqrxt/yjzzSpecification"
-                },
-                {
-                  id: 148,
-                  label: "法向测量装置规格信息表",
-                  link: "/total/hdymzkjqrxt/fxclzzSpecification"
-                },
-                {
-                  id: 149,
-                  label: "视觉测量装置规格信息表",
-                  link: "/total/hdymzkjqrxt/sjclzzSpecification"
-                },
-                {
-                  id: 1410,
-                  label: "产品信息表",
-                  link: "/total/hdymzkjqrxt/cpProduct"
-                },
-                {
-                  id: 1411,
-                  label: "工艺流程表",
-                  link: "/total/hdymzkjqrxt/gyProcess"
-                },
-                {
-                  id: 1412,
-                  label: "制孔工艺要求表",
-                  link: "/total/hdymzkjqrxt/holeAccuracy"
-                },
-                {
-                  id: 1413,
-                  label: "制孔工艺表",
-                  link: "/total/hdymzkjqrxt/holeProcess"
-                },
-                {
-                  id: 1414,
-                  label: "机器人运动参数表",
-                  link: "/total/hdymzkjqrxt/robotProcess"
-                }
-              ]
-            }
           ]
-        }
+        },
       ],
       defaultProps: {
         children: "children",
