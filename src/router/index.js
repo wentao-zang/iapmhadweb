@@ -103,6 +103,13 @@ import {
   yhsystem
 } from "@/components/YHSZHZP/index";
 
+import {
+  lwhoist,
+  rwhoist,
+  winghoist,
+  dbjsystem,
+} from "@/components/JYDBJDJ/index";
+
 Vue.use(Router);
 
 export default new Router({
@@ -530,6 +537,26 @@ export default new Router({
           path: "yhszhzp/test/lstest",
           name: "test",
           component: test
+        },
+        {
+          path: "jydbjdj/dbjsystem",
+          name: "dbjsystem",
+          component: dbjsystem
+        },
+        {
+          path: "jydbjdj/winghoist/lwhoist",
+          name: "lwhoist",
+          component: lwhoist
+        },
+        {
+          path: "jydbjdj/winghoist/rwhoist",
+          name: "rwhoist",
+          component: rwhoist
+        },
+        {
+          path: "jydbjdj/winghoist/winghoist",
+          name: "winghoist",
+          component: winghoist
         },
         {
           path: "yhszhzp/postureanalysys",
