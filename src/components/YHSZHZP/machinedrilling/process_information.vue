@@ -445,16 +445,7 @@ export default {
     return {
       percentage: 0,
       productinfo:{
-        aircraftId:'',
-        flightId:'',
-        productName:'',
-        productNum:'',
-        taskId:'',
-        holeId:'',
         lastId:0,
-        toolId:'',
-        processNum:'',
-        totalNum:''
       },
       generalholeprocess: {},
       noncoldextrusionholetool: {}
@@ -463,20 +454,12 @@ export default {
   methods: {
     getproductinfo() {
       this.$http({
-        url: this.$http.adornUrl("amehdym/productinfo/getlast/"+this.productinfo.lastId),
+        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
         method: "get",
       }).then(({ data }) => {
         console.log("data",data);
         if (data!='') {
-        this.productinfo.flightId = data.flightId;
-        this.productinfo.productNum = data.productNum;
-        this.productinfo.holeId = data.holeId;
-        this.productinfo.toolId = data.toolId;
-        this.productinfo.aircraftId = data.aircraftId;
-        this.productinfo.productName = data.productName;
-        this.productinfo.taskId = data.taskId;
-        this.productinfo.processNum = data.processNum;
-        this.productinfo.totalNum = data.totalNum;
+        this.productinfo = data;
         this.percentage =(this.productinfo.processNum / this.productinfo.totalNum) * 100;
         }
       });
@@ -513,6 +496,7 @@ export default {
   mounted() {
     const timer = setInterval(() => {
       this.getData();
+      this.getproductinfo();
     }, 10000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {

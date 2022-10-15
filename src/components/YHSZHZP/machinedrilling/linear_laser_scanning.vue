@@ -26,20 +26,20 @@
         <div class="robot_table t_btn8">
           <table>
             <tr>
-              <td>数据条编号</td>
-              <td id="1">{{ productinfo.id }}</td>
-              <td>飞机编号</td>
-              <td id="2">{{ productinfo.aircraftId }}</td>
-              <td>产品内部id</td>
-              <td id="3">{{ productinfo.productNum }}</td>
+              <td>机型</td>
+              <td id="1">{{ productinfo.aircraftId }}</td>
+              <td>架次</td>
+              <td id="2">{{ productinfo.flightId }}</td>
+              <td>产品名称</td>
+              <td id="3">{{ productinfo.productName }}</td>
             </tr>
             <tr>
-              <td>工艺流程编号</td>
+              <td>任务编号</td>
               <td id="4">{{ productinfo.taskId }}</td>
+              <td>刀具编号</td>
+              <td id="5">{{ productinfo.toolId }}</td>
               <td>孔号</td>
-              <td id="5">{{ productinfo.holeId }}</td>
-              <td>主轴编号</td>
-              <td id="6">{{ spinfo.lastData.id }}</td>
+              <td id="6">{{ productinfo.holeId }}</td>
             </tr>
           </table>
         </div>
@@ -168,9 +168,11 @@ export default {
   data() {
     //这里存放数据
     return {
-      key1: "",
+      key1: "holediaMea",
+      key2:"pitdiaMea",
+      key3:"eevenness",
       time: null,
-      spinfo: {
+      holeinfo: {
         //存放处理后的数据
         list: [],
         //存放后端穿过来的数据
@@ -188,7 +190,9 @@ export default {
         lastId: 0,
         lastTime: 0,
       },
-      productinfo: {},
+      productinfo: {
+        lastId:0
+      },
       statusinfo: {},
       footpressinfo: {
         //存放处理后的数据
@@ -924,13 +928,22 @@ export default {
     };
   },
   methods: {
+    getproductinfo() {
+      this.$http({
+        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
+        method: "get"
+      }).then(({ data }) => {
+        // console.log("axisinfo",data);
+        this.productinfo = data;
+      });
+    },
     getData() {
       // this.getD1();
       // this.getD2();
       // this.getRealtime("footpressinfo", this.footpressinfo);
-      this.getRealtime("spinfo", this.spinfo);
+      this.getRealtime("holemeasure", this.holeinfo);
       // this.getRealtime("posinfo", this.posinfo);
-      this.refresh0();
+      this.refresh0kj();
     },
     getD1() {
       this.$http({
@@ -975,9 +988,40 @@ export default {
         }
       }
     },
-    refresh0() {
-      this.refresh(this.spinfo);
-      this.refresh1(this.spinfo, this.option1.series[0], this.key1);
+    refresh0kj() {
+      this.refreshkj(this.holeinfo);
+      this.refresh1kj(this.holeinfo, this.option1.series[0], this.key1);
+      this.refresh1kj(this.holeinfo, this.option2.series[0], this.key2);
+      this.refresh1kj(this.holeinfo, this.option3.series[0], this.key3);
+    },
+    refreshkj(entity) {
+      // // console.log("this.holemeasure",this.holemeasure);
+      // console.log("entity.lastId",entity.lastId);
+      // console.log("entity",entity);
+      // console.log("entity.lastTime",entity.lastTime);
+      // console.log("entity.lastData",entity.lastData);
+      // console.log("entity.listCache",entity.listCache);
+      let li = entity.list.concat(entity.listCache);
+      // console.log("entity.list",entity.list);
+      // console.log("li",li);
+      let len = li.length;
+      for (let i = 0; i < len; i++) {
+        if (entity.lastId - li[i].id <= 40) {
+          entity.list = li.slice(i);
+          entity.listCache = [];
+          break;
+        }
+      }
+    },
+    refresh1kj(entity, yData, key) {
+      let len = entity.list.length;
+      let dataY=[];
+      //设置y轴数据
+      for (let i = 0; i < len; i++) {
+        dataY[i] = entity.list[i][key];
+      }
+      // console.log("datay",dataY);
+      yData.data = dataY;
     },
     // 设置y轴数据
     refresh1(entity, series, key) {
@@ -1019,6 +1063,7 @@ export default {
       this.XF();
     });
     const timer = setInterval(() => {
+      this.getproductinfo();
       this.getData();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。

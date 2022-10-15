@@ -37,20 +37,20 @@
         <div class="robot_table t_btn8">
           <table>
             <tr>
-              <td>数据条编号</td>
-              <td>{{ productinfo.id }}</td>
-              <td>飞机编号</td>
+              <td>机型</td>
               <td>{{ productinfo.aircraftId }}</td>
-              <td>产品内部id</td>
-              <td>{{ productinfo.productNum }}</td>
+              <td>架次</td>
+              <td>{{ productinfo.flightId }}</td>
+              <td>产品名称</td>
+              <td>{{ productinfo.productName }}</td>
             </tr>
             <tr>
-              <td>工艺流程编号</td>
+              <td>任务编号</td>
               <td>{{ productinfo.taskId }}</td>
+              <td>刀具编号</td>
+              <td>{{ productinfo.toolId }}</td>
               <td>孔号</td>
               <td>{{ productinfo.holeId }}</td>
-              <td>位姿状态</td>
-              <td>正常</td>
             </tr>
           </table>
         </div>
@@ -230,6 +230,8 @@ export default {
       },
       key1:'',
       key2:'',
+      key3:'',
+      key4:'',
       value1: "平台X轴速度",
       value2: "平台Y轴速度",
       value3: "工位切换轴速度",
@@ -244,7 +246,6 @@ export default {
         lastTime: 0
       },
       productinfo: {
-        aircraftId:'',
         lastId: 0
       },
       footpressinfo: {
@@ -265,24 +266,24 @@ export default {
       ],
       options2: [
         { label: "平台Y轴速度", name: "速度/m/s", key: "vel2" },
-        { label: "平台Y轴位移", name: "位移/m", key: "current" },
-        { label: "平台Y轴温度", name: "温度/℃", key: "power" },
-        { label: "平台Y轴功率", name: "功率/W", key: "torque" },
-        { label: "平台Y轴电流", name: "电流/A", key: "torque" }
+        { label: "平台Y轴位移", name: "位移/m", key: "x2" },
+        { label: "平台Y轴温度", name: "温度/℃", key: "temp2" },
+        { label: "平台Y轴功率", name: "功率/W", key: "power2" },
+        { label: "平台Y轴电流", name: "电流/A", key: "current2" }
       ],
       options3: [
-        { label: "工位切换轴速度", name: "速度/m/s", key: "rotvel" },
-        { label: "工位切换轴位移", name: "位移/m", key: "current" },
-        { label: "工位切换轴温度", name: "温度/℃", key: "power" },
-        { label: "工位切换轴功率", name: "功率/W", key: "torque" },
-        { label: "工位切换轴电流", name: "电流/A", key: "torque" }
+        { label: "工位切换轴速度", name: "速度/m/s", key: "vel3" },
+        { label: "工位切换轴位移", name: "位移/m", key: "x3" },
+        { label: "工位切换轴温度", name: "温度/℃", key: "temp3" },
+        { label: "工位切换轴功率", name: "功率/W", key: "power3" },
+        { label: "工位切换轴电流", name: "电流/A", key: "current3" }
       ],
       options4: [
-        { label: "孔探轴速度", name: "速度/m/s", key: "rotvel" },
-        { label: "孔探轴位移", name: "位移/m", key: "current" },
-        { label: "孔探轴温度", name: "温度/℃", key: "power" },
-        { label: "孔探轴功率", name: "功率/W", key: "torque" },
-        { label: "孔探轴电流", name: "电流/A", key: "torque" }
+        { label: "孔探轴速度", name: "速度/m/s", key: "vel4" },
+        { label: "孔探轴位移", name: "位移/m", key: "x4" },
+        { label: "孔探轴温度", name: "温度/℃", key: "temp4" },
+        { label: "孔探轴功率", name: "功率/W", key: "power4" },
+        { label: "孔探轴电流", name: "电流/A", key: "current4" }
       ],
       option1: {
         animation: false,
@@ -401,7 +402,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -478,18 +479,6 @@ export default {
               }
             }
           },
-          {
-            data: [],
-            type: "line",
-            showSymbol: false,
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fac858"
-                }
-              }
-            }
-          }
         ]
       },
       option3: {
@@ -514,7 +503,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -591,18 +580,6 @@ export default {
               }
             }
           },
-          {
-            data: [],
-            type: "line",
-            showSymbol: false,
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fac858"
-                }
-              }
-            }
-          }
         ]
       },
       option4: {
@@ -627,7 +604,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -704,18 +681,6 @@ export default {
               }
             }
           },
-          {
-            data: [],
-            type: "line",
-            showSymbol: false,
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fac858"
-                }
-              }
-            }
-          }
         ]
       },
       tableData1: [
@@ -753,13 +718,13 @@ export default {
     };
   },
   methods: {
-    getaxisinfo() {
+    getproductinfo() {
       this.$http({
         url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
         method: "get"
       }).then(({ data }) => {
         // console.log("axisinfo",data);
-        this.productinfo.aircraftId = data.aircraftId;
+        this.productinfo = data;
       });
     },
     change1(data) {
@@ -788,6 +753,7 @@ export default {
     change3(data) {
       for (let i of this.options3) {
         if (i.label == data) {
+          this.key3 = i.key;
           this.option3.yAxis.name = i.name;
           this.refresh1(this.spinfo, this.option3.series[0], i.key);
           break;
@@ -797,6 +763,7 @@ export default {
     change4(data) {
       for (let i of this.options4) {
         if (i.label == data) {
+          this.key4 = i.key;
           this.option4.yAxis.name = i.name;
           this.refresh1(this.spinfo, this.option4.series[0], i.key);
           break;
@@ -847,6 +814,8 @@ export default {
       this.refresh(this.axisinfo);
       this.refresh1(this.axisinfo, this.option1.series[0], this.key1);
       this.refresh1(this.axisinfo, this.option2.series[0], this.key2);
+      this.refresh1(this.axisinfo, this.option3.series[0], this.key3);
+      this.refresh1(this.axisinfo, this.option4.series[0], this.key4);
     },
     // 设置y轴数据
     refresh1(entity, series, key) {
@@ -878,17 +847,30 @@ export default {
         x[i] = i;
       }
       this.option1.xAxis.data = x;
+      this.option2.xAxis.data = x;
+      this.option3.xAxis.data = x;
+      this.option4.xAxis.data = x;
     }
   },
   mounted() {
     this.$nextTick(() => {
       // console.log("mouted");
+      this.XF();
       this.change1("平台X轴速度");
       this.change2("平台Y轴速度");
-      this.XF();
+      this.change3("工位切换轴速度");
+      // this.change4("孔探轴速度");
+    });
+    this.$nextTick(() => {
+      // console.log("mouted");
+      // this.XF();
+      // this.change1("平台X轴速度");
+      // this.change2("平台Y轴速度");
+      // this.change3("工位切换轴速度");
+      this.change4("孔探轴速度");
     });
     const timer = setInterval(() => {
-      this.getaxisinfo();
+      this.getproductinfo();
       this.getData();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。

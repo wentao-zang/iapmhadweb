@@ -37,20 +37,20 @@
         <div class="robot_table t_btn8">
           <table>
             <tr>
-              <td>数据条编号</td>
-              <td id="1">{{ productinfo.id }}</td>
-              <td>飞机编号</td>
-              <td id="2">{{ productinfo.aircraftId }}</td>
-              <td>产品内部id</td>
-              <td id="3">{{ productinfo.productNum }}</td>
+              <td>机型</td>
+              <td id="1">{{ productinfo.aircraftId }}</td>
+              <td>架次</td>
+              <td id="2">{{ productinfo.flightId }}</td>
+              <td>产品名称</td>
+              <td id="3">{{ productinfo.productName }}</td>
             </tr>
             <tr>
-              <td>工艺流程编号</td>
+              <td>任务编号</td>
               <td id="4">{{ productinfo.taskId }}</td>
+              <td>刀具编号</td>
+              <td id="5">{{ productinfo.toolId }}</td>
               <td>孔号</td>
-              <td id="5">{{ productinfo.holeId }}</td>
-              <td>主轴编号</td>
-              <td id="6">{{ spinfo.lastData.id }}</td>
+              <td id="6">{{ productinfo.holeId }}</td>
             </tr>
           </table>
         </div>
@@ -291,6 +291,11 @@ export default {
     //这里存放数据
     return {
       key1:'',
+      key2:'',
+      key3:'temp',
+      key4:'current',
+      key5:'rotvel',
+      key6:'vel',
       time: null,
       spinfo: {
         //存放处理后的数据
@@ -310,7 +315,9 @@ export default {
         lastId: 0,
         lastTime: 0
       },
-      productinfo: {},
+      productinfo: {
+        lastId: 0
+      },
       statusinfo: {},
       footpressinfo: {
         //存放处理后的数据
@@ -332,10 +339,10 @@ export default {
         {
           label: "功率",
           name: "功率/W",
-          key: "pos",
+          key: "power",
           en: "spinfo"
         },
-        { label: "转矩", name: "转矩/N·M", key: "x11", en: "posinfo" }
+        { label: "转矩", name: "转矩/N·M", key: "torque", en: "posinfo" }
       ],
       option1: {
         animation: false,
@@ -454,7 +461,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -567,7 +574,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -662,7 +669,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -775,7 +782,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -912,7 +919,7 @@ export default {
             }
           },
           axisLabel: {
-            interval: 4,
+            interval: 9,
             textStyle: {
               color: "#fff"
             }
@@ -1062,10 +1069,20 @@ export default {
     };
   },
   methods: {
+    getproductinfo() {
+      this.$http({
+        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
+        method: "get"
+      }).then(({ data }) => {
+        // console.log("axisinfo",data);
+        this.productinfo = data;
+      });
+    },
     getData() {
       // this.getD1();
       // this.getD2();
       // this.getRealtime("footpressinfo", this.footpressinfo);
+      this.getRealtime("spinfo", this.spinfo);
       this.getRealtime("spinfo", this.spinfo);
       // this.getRealtime("posinfo", this.posinfo);
       this.refresh0();
@@ -1116,6 +1133,11 @@ export default {
     refresh0() {
       this.refresh(this.spinfo);
       this.refresh1(this.spinfo, this.option1.series[0], this.key1);
+      this.refresh1(this.spinfo, this.option2.series[0], this.key2);
+      this.refresh1(this.spinfo, this.option3.series[0], this.key3);
+      this.refresh1(this.spinfo, this.option4.series[0], this.key4);
+      this.refresh1(this.spinfo, this.option5.series[0], this.key5);
+      this.refresh1(this.spinfo, this.option6.series[0], this.key6);
     },
     // 设置y轴数据
     refresh1(entity, series, key) {
@@ -1153,6 +1175,7 @@ export default {
     change2(data) {
       for (let i of this.options2) {
         if (i.label == data) {
+          this.key2 = i.key;
           this.option2.yAxis.name = i.name;
           this.refresh1(this[i.en], this.option2.series[0], i.key);
           break;
@@ -1167,15 +1190,22 @@ export default {
         x[i] = i;
       }
       this.option1.xAxis.data = x;
+      this.option2.xAxis.data = x;
+      this.option3.xAxis.data = x;
+      this.option4.xAxis.data = x;
+      this.option5.xAxis.data = x;
+      this.option6.xAxis.data = x;
     }
   },
   mounted() {
     this.$nextTick(() => {
       this.change1("X进给轴位置");
+      this.change2("功率");
       this.XF();
     });
     const timer = setInterval(() => {
       this.getData();
+      this.getproductinfo();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {
