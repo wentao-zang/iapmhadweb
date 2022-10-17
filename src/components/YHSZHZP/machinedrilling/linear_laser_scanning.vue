@@ -191,8 +191,8 @@ export default {
         lastTime: 0,
       },
       productinfo: {
-        lastId:0
       },
+      lastId:0,
       statusinfo: {},
       footpressinfo: {
         //存放处理后的数据
@@ -930,11 +930,15 @@ export default {
   methods: {
     getproductinfo() {
       this.$http({
-        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
+        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.lastId),
         method: "get"
       }).then(({ data }) => {
-        // console.log("axisinfo",data);
-        this.productinfo = data;
+        if(data!=''){
+          console.log("axisinfo",data);
+          this.productinfo = data;
+          this.lastId=data.id;
+          console.log("lastid",this.lastId);
+        }
       });
     },
     getData() {

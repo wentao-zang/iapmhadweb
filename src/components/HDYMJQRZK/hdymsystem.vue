@@ -26,15 +26,17 @@
           </div>
           <!-- 左上框标题 -->
           <div class="tt fl">
-            <div class="">
-              <img
-                src="@/assets/images/HDYMJQRZK/system.png"
+            <div class="rr">
+              <iframe scrolling="no" allowTransparency="true"
+              vspace= "0"   hspace= "0" marginwidth= "0" marginheight= "0" 
+              framespacing= "0"   frameborder= "0"
+                src="http://localhost:81/111/"
                 style="
                   width: 100%;
                   height: 100%;
                   background: rgba(255, 255, 255, 0);
                 "
-              />
+              ></iframe>
             </div>
           </div>
         </div>

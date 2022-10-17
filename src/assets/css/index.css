@@ -34,7 +34,7 @@
 }
 .hdymsystem .content1 {
     width: 100%;
-    height: 600px;
+    height: 65%;
 
     /* border: solid #ffff43 2px; */
     /* margin-top: 20px; */
@@ -69,29 +69,30 @@
 
 .data_content .content1 .data1 {
     width: 14.8%;
-    height: 100px;
+    height: 100%;
     margin-left: 25px;
     box-sizing: border-box;
     border: 1px solid #2c58a6;
     position: relative;
     box-shadow: 0 0 10px #2c58a6;
     float: left;
-    /* border: solid #ffff43 2px; */
+    /* border: solid #43ff8e 2px; */
 }
 .hdymsystem .content1 .data1 {
-    width: 1163px;
-    height: 610px;
+    width: 60%;
+    height: 100%;
     margin-left: 20px;
     box-sizing: border-box;
     border: 1px solid #2c58a6;
     position: relative;
     box-shadow: 0 0 10px #2c58a6;
+    overflow:hidden;
     float: left;
-    /* border: solid #ffff43 2px; */
+    /* border: solid #43ff82 2px; */
 }
 .hdymsystem .content2 .data1 {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     margin-left: 20px;
     box-sizing: border-box;
     border: 1px solid #2c58a6;
@@ -112,8 +113,9 @@
     /* border: solid #ffff43 2px; */
 }
 .hdymsystem .content1 .data1 .tt {
-    width: 1150px;
-    height: 580px;
+    width: 100%;
+    height: 100%;
+    /* border: solid #ffff43 2px; */
     /* text-align: center; */
     font-size: 1.8em;
     font-weight: 400;
@@ -121,11 +123,15 @@
     /* line-height: 80px; */
     color: #fff;
     padding-left: 10px;
+    z-index: 2;
     /* padding-top: 10px; */
 }
+.hdymsystem .content1 .data1 .tt .rr{
+    /* border: solid #ff4356 2px; */
+}
 .hdymsystem .content1 .data2 {
-    width: 350px;
-    height: 610px;
+    width: 29.5%;
+    height: 100%;
     margin-left: 10px;
     box-sizing: border-box;
     /* position: relative; */
@@ -134,8 +140,8 @@
     /* border: solid #ffff43 2px; */
 }
 .hdymsystem .content1 .data2 .d1 {
-    width: 375px;
-    height: 610px;
+    width: 100%;
+    height: 100%;
     margin-left: 10px;
     box-sizing: border-box;
     border: 1px solid #2c58a6;

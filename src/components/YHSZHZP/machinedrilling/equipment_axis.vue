@@ -219,6 +219,7 @@ export default {
   data() {
     //这里存放数据
     return {
+      lastId: 0,
       axisinfo:{
         //存放处理后的数据
         list: [],
@@ -245,9 +246,7 @@ export default {
         lastId: 0,
         lastTime: 0
       },
-      productinfo: {
-        lastId: 0
-      },
+      productinfo: {},
       footpressinfo: {
         //存放处理后的数据
         list: [],
@@ -720,11 +719,13 @@ export default {
   methods: {
     getproductinfo() {
       this.$http({
-        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
+        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.lastId),
         method: "get"
       }).then(({ data }) => {
-        // console.log("axisinfo",data);
-        this.productinfo = data;
+        if(data!=''){
+          this.productinfo = data;
+          this.lastId=data.id;
+        }
       });
     },
     change1(data) {

@@ -443,10 +443,9 @@ export default {
   components: {},
   data() {
     return {
+      lastId:0,
       percentage: 0,
-      productinfo:{
-        lastId:0,
-      },
+      productinfo:{},
       generalholeprocess: {},
       noncoldextrusionholetool: {}
     };
@@ -454,12 +453,19 @@ export default {
   methods: {
     getproductinfo() {
       this.$http({
-        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.productinfo.lastId),
+        url: this.$http.adornUrl("yhmh/productinfo/getlast/"+this.lastId),
         method: "get",
       }).then(({ data }) => {
         console.log("data",data);
         if (data!='') {
         this.productinfo = data;
+        this.lastId=data.id;
+     var unwatch = this.$watch('propertyName', function (newValue, oldValue) {
+      
+     }, {
+      deep: true,
+      immediate: true,
+     });
         this.percentage =(this.productinfo.processNum / this.productinfo.totalNum) * 100;
         }
       });
@@ -496,7 +502,7 @@ export default {
   mounted() {
     const timer = setInterval(() => {
       this.getData();
-      this.getproductinfo();
+      // this.getproductinfo();
     }, 10000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {
