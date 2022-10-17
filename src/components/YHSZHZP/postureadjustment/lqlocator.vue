@@ -361,6 +361,10 @@ export default {
     let Lx='1';
     //这里存放数据
     return {
+      lqlocastanid:0,
+      lqlocadisid:0,
+      lqlocadisid:{},
+      lqlocastanid:{},
       tableData1: [
         {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
         {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
@@ -1389,6 +1393,76 @@ export default {
     };
   },
   methods: {
+    getlqlocadis(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/lqlocadis/getlast/"+this.lqlocadisid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.lqlocadis=data;
+          this.lqlocadisid=data.id;
+          this.tableData1[0].column2=this.lqlocadis.locax1;
+          this.tableData1[0].column4=this.lqlocadis.locay1;
+          this.tableData2[0].column2=this.lqlocadis.locax2;
+          this.tableData2[0].column4=this.lqlocadis.locay2;
+          this.tableData3[0].column2=this.lqlocadis.locax3;
+          this.tableData3[0].column4=this.lqlocadis.locay3;
+          this.tableData4[0].column2=this.lqlocadis.locax4;
+          this.tableData4[0].column4=this.lqlocadis.locay4;
+          this.tableData5[0].column2=this.lqlocadis.locax5;
+          this.tableData5[0].column4=this.lqlocadis.locay5;
+          this.tableData6[0].column2=this.lqlocadis.locax6;
+          this.tableData6[0].column4=this.lqlocadis.locay6;
+          this.tableData7[0].column2=this.lqlocadis.locapz1;
+          this.tableData8[0].column2=this.lqlocadis.locapz2;
+        }
+      });
+    },
+    getlqlocastan(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/lqlocastan/getlast/"+this.lqlocastanid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.lqlocastan=data;
+          this.lqlocastanid=data.id;
+          this.tableData1[0].column2=this.lqlocastan.locasx1;
+          this.tableData1[0].column4=this.lqlocastan.locasy1;
+          this.tableData2[0].column2=this.lqlocastan.locasx2;
+          this.tableData2[0].column4=this.lqlocastan.locasy2;
+          this.tableData3[0].column2=this.lqlocastan.locasx3;
+          this.tableData3[0].column4=this.lqlocastan.locasy3;
+          this.tableData4[0].column2=this.lqlocastan.locasx4;
+          this.tableData4[0].column4=this.lqlocastan.locasy4;
+          this.tableData5[0].column2=this.lqlocastan.locasx5;
+          this.tableData5[0].column4=this.lqlocastan.locasy5;
+          this.tableData6[0].column2=this.lqlocastan.locasx6;
+          this.tableData6[0].column4=this.lqlocastan.locasy6;
+          this.tableData7[0].column2=this.lqlocastan.locaspz1;
+          this.tableData8[0].column2=this.lqlocastan.locaspz2;
+        }
+      });
+    },
+    getlqdeltaloca(){
+      this.getlqlocadis();
+      this.getlqlocastan();
+      this.tableData1[1].column2=(this.lqlocastan.locasx1-this.lqlocadis.locax1).toFixed(2);
+      this.tableData1[1].column4=(this.lqlocastan.locasy1-this.lqlocadis.locay1).toFixed(2);
+      this.tableData2[1].column2=(this.lqlocastan.locasx2-this.lqlocadis.locax2).toFixed(2);
+      this.tableData2[1].column4=(this.lqlocastan.locasy2-this.lqlocadis.locay2).toFixed(2);
+      this.tableData3[1].column2=(this.lqlocastan.locasx3-this.lqlocadis.locax3).toFixed(2);
+      this.tableData3[1].column4=(this.lqlocastan.locasy3-this.lqlocadis.locay3).toFixed(2);
+      this.tableData4[1].column2=(this.lqlocastan.locasx4-this.lqlocadis.locax4).toFixed(2);
+      this.tableData4[1].column4=(this.lqlocastan.locasy4-this.lqlocadis.locay4).toFixed(2);
+      this.tableData5[1].column2=(this.lqlocastan.locasx5-this.lqlocadis.locax5).toFixed(2);
+      this.tableData5[1].column4=(this.lqlocastan.locasy5-this.lqlocadis.locay5).toFixed(2);
+      this.tableData6[1].column2=(this.lqlocastan.locasx6-this.lqlocadis.locax6).toFixed(2);
+      this.tableData6[1].column4=(this.lqlocastan.locasy6-this.lqlocadis.locay6).toFixed(2);
+      this.tableData7[1].column2=(this.lqlocastan.locaspz1-this.lqlocadis.locapz1).toFixed(2);
+      this.tableData8[1].column2=(this.lqlocastan.locaspz2-this.lqlocadis.locapz1).toFixed(2);
+    },
     getData() {
       this.getD();
       this.getRealtime("posinfo", this.posinfo);
@@ -1503,7 +1577,7 @@ export default {
       this.XF();
     });
     const timer = setInterval(() => {
-      this.getData();
+      this.getlqdeltaloca();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {

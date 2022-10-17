@@ -691,12 +691,18 @@ export default {
     let Lx='1';
     //这里存放数据
     return {
-      lslocadis1:{
-        lastId:0,
-        locax1:'',
-        locay1:'',
-        locaz1:''
-      },
+      rsbasestanid:0,
+      rslocastan1id:0,
+      rslocastan2id:0,
+      rsbasedisid:0,
+      rslocadis1id:0,
+      rslocadis2id:0,
+      rsbasedis:{},
+      rslocadis1:{},
+      rslocadis2:{},
+      rsbasestan:{},
+      rslocastan1:{},
+      rslocastan2:{},
       tableData1: [
         {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
         {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
@@ -1755,13 +1761,243 @@ export default {
     };
   },
   methods: {
-    getlslocadis1(){
+    getrslocadis1(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/lslocadis1/getlast/"+this.lslocadis1.lastId),
+        url: this.$http.adornUrl("yhpa/rslocadis1/getlast/"+this.rslocadis1id),
         method: "get",
       }).then(({ data }) => {
-        console.log("data",data);
         if (data!='') {
+          console.log("data",data);
+          this.rslocadis1=data;
+          this.rslocadis1id=data.id;
+          this.tableData1[0].column2=this.rslocadis1.locax1;
+          this.tableData1[0].column4=this.rslocadis1.locay1;
+          this.tableData1[0].column6=this.rslocadis1.locaz1;
+          this.tableData2[0].column2=this.rslocadis1.locax2;
+          this.tableData2[0].column4=this.rslocadis1.locay2;
+          this.tableData2[0].column6=this.rslocadis1.locaz2;
+          this.tableData3[0].column2=this.rslocadis1.locax3;
+          this.tableData3[0].column4=this.rslocadis1.locay3;
+          this.tableData3[0].column6=this.rslocadis1.locaz3;
+          this.tableData4[0].column2=this.rslocadis1.locax4;
+          this.tableData4[0].column4=this.rslocadis1.locay4;
+          this.tableData4[0].column6=this.rslocadis1.locaz4;
+        }
+      });
+    },
+    getrslocadis2(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rslocadis2/getlast/"+this.rslocadis2id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rslocadis2=data;
+          this.rslocadis2id=data.id;
+          this.tableData5[0].column2=this.rslocadis2.locax5;
+          this.tableData5[0].column4=this.rslocadis2.locay5;
+          this.tableData5[0].column6=this.rslocadis2.locaz5;
+          this.tableData6[0].column2=this.rslocadis2.locax6;
+          this.tableData6[0].column4=this.rslocadis2.locay6;
+          this.tableData6[0].column6=this.rslocadis2.locaz6;
+          this.tableData7[0].column2=this.rslocadis2.locax7;
+          this.tableData7[0].column4=this.rslocadis2.locay7;
+          this.tableData7[0].column6=this.rslocadis2.locaz7;
+          this.tableData8[0].column2=this.rslocadis2.locax8;
+          this.tableData8[0].column4=this.rslocadis2.locay8;
+          this.tableData8[0].column6=this.rslocadis2.locaz8;
+        }
+      });
+    },
+    getrsbasedis(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rsbasedis/getlast/"+this.rsbasedisid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rsbasedis=data;
+          this.rsbasedisid=data.id;
+          this.tableData9[0].column2=this.rsbasedis.basex1;
+          this.tableData9[0].column4=this.rsbasedis.basez1;
+          this.tableData10[0].column2=this.rsbasedis.basex2;
+          this.tableData10[0].column4=this.rsbasedis.basez2;
+          this.tableData11[0].column2=this.rsbasedis.basex3;
+          this.tableData11[0].column4=this.rsbasedis.basez3;
+          this.tableData12[0].column2=this.rsbasedis.basex4;
+          this.tableData12[0].column4=this.rsbasedis.basez4;
+          this.tableData13[0].column2=this.rsbasedis.basex4;
+          this.tableData13[0].column4=this.rsbasedis.basez4;
+          this.tableData14[0].column2=this.rsbasedis.basesqux;
+          this.tableData14[0].column4=this.rsbasedis.basesquz;
+        }
+      });
+    },
+    getrslocastan1(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rslocastan1/getlast/"+this.rslocastan1id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("sdata",data);
+          this.rslocastan1=data;
+          this.rslocastan1id=data.id;
+          this.tableData1[2].column2=this.rslocastan1.locasx1;
+          this.tableData1[2].column4=this.rslocastan1.locasy1;
+          this.tableData1[2].column6=this.rslocastan1.locasz1;
+          this.tableData2[2].column2=this.rslocastan1.locasx2;
+          this.tableData2[2].column4=this.rslocastan1.locasy2;
+          this.tableData2[2].column6=this.rslocastan1.locasz2;
+          this.tableData3[2].column2=this.rslocastan1.locasx3;
+          this.tableData3[2].column4=this.rslocastan1.locasy3;
+          this.tableData3[2].column6=this.rslocastan1.locasz3;
+          this.tableData4[2].column2=this.rslocastan1.locasx4;
+          this.tableData4[2].column4=this.rslocastan1.locasy4;
+          this.tableData4[2].column6=this.rslocastan1.locasz4;
+        }
+      });
+    },
+    getrslocastan2(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rslocastan2/getlast/"+this.rslocastan2id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("sdata",data);
+          this.rslocastan2=data;
+          this.rslocastan2id=data.id;
+          this.tableData5[2].column2=this.rslocastan2.locasx5;
+          this.tableData5[2].column4=this.rslocastan2.locasy5;
+          this.tableData5[2].column6=this.rslocastan2.locasz5;
+          this.tableData6[2].column2=this.rslocastan2.locasx6;
+          this.tableData6[2].column4=this.rslocastan2.locasy6;
+          this.tableData6[2].column6=this.rslocastan2.locasz6;
+          this.tableData7[2].column2=this.rslocastan2.locasx7;
+          this.tableData7[2].column4=this.rslocastan2.locasy7;
+          this.tableData7[2].column6=this.rslocastan2.locasz7;
+          this.tableData8[2].column2=this.rslocastan2.locasx8;
+          this.tableData8[2].column4=this.rslocastan2.locasy8;
+          this.tableData8[2].column6=this.rslocastan2.locasz8;
+        }
+      });
+    },
+    getrsbasestan(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rsbasestan/getlast/"+this.rsbasestanid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rsbasestan=data;
+          this.rsbasestanid=data.id;
+          this.tableData9[0].column2=this.rsbasestan.basesx1;
+          this.tableData9[0].column4=this.rsbasestan.basesz1;
+          this.tableData10[0].column2=this.rsbasestan.basesx2;
+          this.tableData10[0].column4=this.rsbasestan.basesz2;
+          this.tableData11[0].column2=this.rsbasestan.basesx3;
+          this.tableData11[0].column4=this.rsbasestan.basesz3;
+          this.tableData12[0].column2=this.rsbasestan.basesx4;
+          this.tableData12[0].column4=this.rsbasestan.basesz4;
+          this.tableData13[0].column2=this.rsbasestan.basesx4;
+          this.tableData13[0].column4=this.rsbasestan.basesz4;
+          this.tableData14[0].column2=this.rsbasestan.basesqusx;
+          this.tableData14[0].column4=this.rsbasestan.basesqusz;
+        }
+      });
+    },
+    getrsdeltaloca1(){
+      this.getrslocadis1();
+      this.getrslocastan1();
+      this.tableData1[1].column2=(this.rslocastan1.locasx1-this.rslocadis1.locax1).toFixed(2);
+      this.tableData1[1].column4=(this.rslocastan1.locasy1-this.rslocadis1.locay1).toFixed(2);
+      this.tableData1[1].column6=(this.rslocastan1.locasz1-this.rslocadis1.locaz1).toFixed(2);
+      this.tableData2[1].column2=(this.rslocastan1.locasx2-this.rslocadis1.locax2).toFixed(2);
+      this.tableData2[1].column4=(this.rslocastan1.locasy2-this.rslocadis1.locay2).toFixed(2);
+      this.tableData2[1].column6=(this.rslocastan1.locasz2-this.rslocadis1.locaz2).toFixed(2);
+      this.tableData3[1].column2=(this.rslocastan1.locasx3-this.rslocadis1.locax3).toFixed(2);
+      this.tableData3[1].column4=(this.rslocastan1.locasy3-this.rslocadis1.locay3).toFixed(2);
+      this.tableData3[1].column6=(this.rslocastan1.locasz3-this.rslocadis1.locaz3).toFixed(2);
+      this.tableData4[1].column2=(this.rslocastan1.locasx4-this.rslocadis1.locax4).toFixed(2);
+      this.tableData4[1].column4=(this.rslocastan1.locasy4-this.rslocadis1.locay4).toFixed(2);
+      this.tableData4[1].column6=(this.rslocastan1.locasz4-this.rslocadis1.locax1).toFixed(2);
+    },
+    getrsdeltaloca2(){
+      this.getrslocadis1();
+      this.getrslocastan1();
+      this.tableData5[1].column2=(this.rslocastan2.locasx1-this.rslocadis2.locax1).toFixed(2);
+      this.tableData5[1].column4=(this.rslocastan2.locasy1-this.rslocadis2.locay1).toFixed(2);
+      this.tableData5[1].column6=(this.rslocastan2.locasz1-this.rslocadis2.locaz1).toFixed(2);
+      this.tableData6[1].column2=(this.rslocastan2.locasx2-this.rslocadis2.locax2).toFixed(2);
+      this.tableData6[1].column4=(this.rslocastan2.locasy2-this.rslocadis2.locay2).toFixed(2);
+      this.tableData6[1].column6=(this.rslocastan2.locasz2-this.rslocadis2.locaz2).toFixed(2);
+      this.tableData7[1].column2=(this.rslocastan2.locasx3-this.rslocadis2.locax3).toFixed(2);
+      this.tableData7[1].column4=(this.rslocastan2.locasy3-this.rslocadis2.locay3).toFixed(2);
+      this.tableData7[1].column6=(this.rslocastan2.locasz3-this.rslocadis2.locaz3).toFixed(2);
+      this.tableData8[1].column2=(this.rslocastan2.locasx4-this.rslocadis2.locax4).toFixed(2);
+      this.tableData8[1].column4=(this.rslocastan2.locasy4-this.rslocadis2.locay4).toFixed(2);
+      this.tableData8[1].column6=(this.rslocastan2.locasz4-this.rslocadis2.locax1).toFixed(2);
+    },
+    getrsdeltabase(){
+      this.getrsbasedis();
+      this.getrsbasestan();
+      this.tableData9[1].column2=(this.rsbasestan.basesx1-this.rsbasedis.basex1).toFixed(2);
+      this.tableData9[1].column4=(this.rsbasestan.basesy1-this.rsbasedis.basey1).toFixed(2);
+      this.tableData10[1].column2=(this.rsbasestan.basesx2-this.rsbasedis.basex2).toFixed(2);
+      this.tableData10[1].column4=(this.rsbasestan.basesy2-this.rsbasedis.basey2).toFixed(2);
+      this.tableData11[1].column2=(this.rsbasestan.basesx3-this.rsbasedis.basex3).toFixed(2);
+      this.tableData11[1].column4=(this.rsbasestan.basesy3-this.rsbasedis.basey3).toFixed(2);
+      this.tableData12[1].column2=(this.rsbasestan.basesx4-this.rsbasedis.basex4).toFixed(2);
+      this.tableData12[1].column4=(this.rsbasestan.basesy4-this.rsbasedis.basey4).toFixed(2);
+      this.tableData13[1].column2=(this.rsbasestan.basesx4-this.rsbasedis.basex4).toFixed(2);
+      this.tableData13[1].column4=(this.rsbasestan.basesy4-this.rsbasedis.basey4).toFixed(2);
+      this.tableData14[1].column2=(this.rsbasestan.basesx4-this.rsbasedis.basex4).toFixed(2);
+      this.tableData14[1].column4=(this.rsbasestan.basesy4-this.rsbasedis.basey4).toFixed(2);
+    },
+    getrslocaload1(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rslocaload1/getlast/"+this.rslocaload1id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rslocaload1=data;
+          this.rslocaload1id=data.id;
+          this.tableData1[0].column8=this.rslocaload1.loadx1;
+          this.tableData1[1].column8=this.rslocaload1.loady1;
+          this.tableData1[2].column8=this.rslocaload1.loadz1;
+          this.tableData1[0].column8=this.rslocaload1.loadx2;
+          this.tableData1[1].column8=this.rslocaload1.loady2;
+          this.tableData1[2].column8=this.rslocaload1.loadz2;
+          this.tableData1[0].column8=this.rslocaload1.loadx3;
+          this.tableData1[1].column8=this.rslocaload1.loady3;
+          this.tableData1[2].column8=this.rslocaload1.loadz3;
+          this.tableData1[0].column8=this.rslocaload1.loadx4;
+          this.tableData1[1].column8=this.rslocaload1.loady4;
+          this.tableData1[2].column8=this.rslocaload1.loadz4;
+        }
+      });
+    },
+    getrslocaload2(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rslocaload2/getlast/"+this.rslocaload2id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rslocaload2=data;
+          this.rslocaload2id=data.id;
+          this.tableData1[0].column8=this.rslocaload2.loadx5;
+          this.tableData1[1].column8=this.rslocaload2.loady5;
+          this.tableData1[2].column8=this.rslocaload2.loadz5;
+          this.tableData1[0].column8=this.rslocaload2.loadx6;
+          this.tableData1[1].column8=this.rslocaload2.loady6;
+          this.tableData1[2].column8=this.rslocaload2.loadz6;
+          this.tableData1[0].column8=this.rslocaload2.loadx7;
+          this.tableData1[1].column8=this.rslocaload2.loady7;
+          this.tableData1[2].column8=this.rslocaload2.loadz7;
+          this.tableData1[0].column8=this.rslocaload2.loadx8;
+          this.tableData1[1].column8=this.rslocaload2.loady8;
+          this.tableData1[2].column8=this.rslocaload2.loadz8;
         }
       });
     },
@@ -1880,7 +2116,8 @@ export default {
     });
     const timer = setInterval(() => {
       // this.getData();
-      this.getlslocadis1();
+      this.getrsdeltaloca1();
+      this.getrsdeltaloca2();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {
