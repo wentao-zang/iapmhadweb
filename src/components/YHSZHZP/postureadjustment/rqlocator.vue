@@ -363,8 +363,8 @@ export default {
     return {
       rqlocastanid:0,
       rqlocadisid:0,
-      rqlocadisid:{},
-      rqlocastanid:{},
+      rqlocadis:{},
+      rqlocastan:{},
       tableData1: [
         {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
         {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},

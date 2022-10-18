@@ -283,6 +283,10 @@
       let Lx='1';
       //这里存放数据
       return {
+        lhflocadisid:0,
+        lhflocastanid:0,
+        lhflocadis:{},
+        lhflocastan:{},
         tableData1: [
           {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
           {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
@@ -312,16 +316,6 @@
           {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
           {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
           {column1:'Xt',column2:`${Xc}`,column3:'Yt',column4:`${Yc}`,column5:'Zt',column6:`${Zc}`,column7:'Lz',column8:`${Lx}`}
-          ],
-        tableData7: [
-          {column1:'Zc',column2:`${Xc}`},
-          {column1:'△Z',column2:`${Xc}`},
-          {column1:'Zt',column2:`${Xc}`}
-          ],
-        tableData8: [
-          {column1:'Zc',column2:`${Xc}`},
-          {column1:'△Z',column2:`${Xc}`},
-          {column1:'Zt',column2:`${Xc}`}
           ],
         posinfo: {
           //存放处理后的数据
@@ -1311,6 +1305,70 @@
       };
     },
     methods: {
+      getlhflocadis(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/lhflocadis/getlast/"+this.lhflocadisid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.lhflocadis=data;
+          this.lhflocadisid=data.id;
+          this.tableData1[0].column2=this.lhflocadis.locax1;
+          this.tableData1[0].column4=this.lhflocadis.locay1;
+          this.tableData2[0].column2=this.lhflocadis.locax2;
+          this.tableData2[0].column4=this.lhflocadis.locay2;
+          this.tableData3[0].column2=this.lhflocadis.locax3;
+          this.tableData3[0].column4=this.lhflocadis.locay3;
+          this.tableData4[0].column2=this.lhflocadis.locax4;
+          this.tableData4[0].column4=this.lhflocadis.locay4;
+          this.tableData5[0].column2=this.lhflocadis.locax5;
+          this.tableData5[0].column4=this.lhflocadis.locay5;
+          this.tableData6[0].column2=this.lhflocadis.locax6;
+          this.tableData6[0].column4=this.lhflocadis.locay6;
+        }
+      });
+    },
+    getlhflocastan(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/lhflocastan/getlast/"+this.lhflocastanid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.lhflocastan=data;
+          this.lhflocastanid=data.id;
+          this.tableData1[2].column2=this.lhflocastan.locasx1;
+          this.tableData1[2].column4=this.lhflocastan.locasy1;
+          this.tableData2[2].column2=this.lhflocastan.locasx2;
+          this.tableData2[2].column4=this.lhflocastan.locasy2;
+          this.tableData3[2].column2=this.lhflocastan.locasx3;
+          this.tableData3[2].column4=this.lhflocastan.locasy3;
+          this.tableData4[2].column2=this.lhflocastan.locasx4;
+          this.tableData4[2].column4=this.lhflocastan.locasy4;
+          this.tableData5[2].column2=this.lhflocastan.locasx5;
+          this.tableData5[2].column4=this.lhflocastan.locasy5;
+          this.tableData6[2].column2=this.lhflocastan.locasx6;
+          this.tableData6[2].column4=this.lhflocastan.locasy6;
+        }
+      });
+    },
+    getlhfdeltaloca(){
+      this.getlhflocadis();
+      this.getlhflocastan();
+      this.tableData1[1].column2=(this.lhflocastan.locasx1-this.lhflocadis.locax1).toFixed(2);
+      this.tableData1[1].column4=(this.lhflocastan.locasy1-this.lhflocadis.locay1).toFixed(2);
+      this.tableData2[1].column2=(this.lhflocastan.locasx2-this.lhflocadis.locax2).toFixed(2);
+      this.tableData2[1].column4=(this.lhflocastan.locasy2-this.lhflocadis.locay2).toFixed(2);
+      this.tableData3[1].column2=(this.lhflocastan.locasx3-this.lhflocadis.locax3).toFixed(2);
+      this.tableData3[1].column4=(this.lhflocastan.locasy3-this.lhflocadis.locay3).toFixed(2);
+      this.tableData4[1].column2=(this.lhflocastan.locasx4-this.lhflocadis.locax4).toFixed(2);
+      this.tableData4[1].column4=(this.lhflocastan.locasy4-this.lhflocadis.locay4).toFixed(2);
+      this.tableData5[1].column2=(this.lhflocastan.locasx5-this.lhflocadis.locax5).toFixed(2);
+      this.tableData5[1].column4=(this.lhflocastan.locasy5-this.lhflocadis.locay5).toFixed(2);
+      this.tableData6[1].column2=(this.lhflocastan.locasx6-this.lhflocadis.locax6).toFixed(2);
+      this.tableData6[1].column4=(this.lhflocastan.locasy6-this.lhflocadis.locay6).toFixed(2);
+    },
       getData() {
         this.getD();
         this.getRealtime("posinfo", this.posinfo);
@@ -1425,7 +1483,7 @@
         this.XF();
       });
       const timer = setInterval(() => {
-        this.getData();
+        this.getlhfdeltaloca();
       }, 1000);
       // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
       this.$once("hook:beforeDestroy", () => {

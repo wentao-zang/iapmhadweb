@@ -283,6 +283,10 @@ export default {
     let Lx='1';
     //这里存放数据
     return {
+      rhflocadisid:0,
+      rhflocastanid:0,
+      rhflocadis:{},
+      rhflocastan:{},
       tableData1: [
         {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
         {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
@@ -1311,6 +1315,70 @@ export default {
     };
   },
   methods: {
+    getrhflocadis(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rhflocadis/getlast/"+this.rhflocadisid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rhflocadis=data;
+          this.rhflocadisid=data.id;
+          this.tableData1[0].column2=this.rhflocadis.locax1;
+          this.tableData1[0].column4=this.rhflocadis.locay1;
+          this.tableData2[0].column2=this.rhflocadis.locax2;
+          this.tableData2[0].column4=this.rhflocadis.locay2;
+          this.tableData3[0].column2=this.rhflocadis.locax3;
+          this.tableData3[0].column4=this.rhflocadis.locay3;
+          this.tableData4[0].column2=this.rhflocadis.locax4;
+          this.tableData4[0].column4=this.rhflocadis.locay4;
+          this.tableData5[0].column2=this.rhflocadis.locax5;
+          this.tableData5[0].column4=this.rhflocadis.locay5;
+          this.tableData6[0].column2=this.rhflocadis.locax6;
+          this.tableData6[0].column4=this.rhflocadis.locay6;
+        }
+      });
+    },
+    getrhflocastan(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rhflocastan/getlast/"+this.rhflocastanid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rhflocastan=data;
+          this.rhflocastanid=data.id;
+          this.tableData1[2].column2=this.rhflocastan.locasx1;
+          this.tableData1[2].column4=this.rhflocastan.locasy1;
+          this.tableData2[2].column2=this.rhflocastan.locasx2;
+          this.tableData2[2].column4=this.rhflocastan.locasy2;
+          this.tableData3[2].column2=this.rhflocastan.locasx3;
+          this.tableData3[2].column4=this.rhflocastan.locasy3;
+          this.tableData4[2].column2=this.rhflocastan.locasx4;
+          this.tableData4[2].column4=this.rhflocastan.locasy4;
+          this.tableData5[2].column2=this.rhflocastan.locasx5;
+          this.tableData5[2].column4=this.rhflocastan.locasy5;
+          this.tableData6[2].column2=this.rhflocastan.locasx6;
+          this.tableData6[2].column4=this.rhflocastan.locasy6;
+        }
+      });
+    },
+    getrhfdeltaloca(){
+      this.getrhflocadis();
+      this.getrhflocastan();
+      this.tableData1[1].column2=(this.rhflocastan.locasx1-this.rhflocadis.locax1).toFixed(2);
+      this.tableData1[1].column4=(this.rhflocastan.locasy1-this.rhflocadis.locay1).toFixed(2);
+      this.tableData2[1].column2=(this.rhflocastan.locasx2-this.rhflocadis.locax2).toFixed(2);
+      this.tableData2[1].column4=(this.rhflocastan.locasy2-this.rhflocadis.locay2).toFixed(2);
+      this.tableData3[1].column2=(this.rhflocastan.locasx3-this.rhflocadis.locax3).toFixed(2);
+      this.tableData3[1].column4=(this.rhflocastan.locasy3-this.rhflocadis.locay3).toFixed(2);
+      this.tableData4[1].column2=(this.rhflocastan.locasx4-this.rhflocadis.locax4).toFixed(2);
+      this.tableData4[1].column4=(this.rhflocastan.locasy4-this.rhflocadis.locay4).toFixed(2);
+      this.tableData5[1].column2=(this.rhflocastan.locasx5-this.rhflocadis.locax5).toFixed(2);
+      this.tableData5[1].column4=(this.rhflocastan.locasy5-this.rhflocadis.locay5).toFixed(2);
+      this.tableData6[1].column2=(this.rhflocastan.locasx6-this.rhflocadis.locax6).toFixed(2);
+      this.tableData6[1].column4=(this.rhflocastan.locasy6-this.rhflocadis.locay6).toFixed(2);
+    },
     getData() {
       this.getD();
       this.getRealtime("posinfo", this.posinfo);
@@ -1425,7 +1493,7 @@ export default {
       this.XF();
     });
     const timer = setInterval(() => {
-      this.getData();
+      this.getrhfdeltaloca();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {

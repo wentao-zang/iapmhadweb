@@ -363,8 +363,8 @@ export default {
     return {
       lqlocastanid:0,
       lqlocadisid:0,
-      lqlocadisid:{},
-      lqlocastanid:{},
+      lqlocadis:{},
+      lqlocastan:{},
       tableData1: [
         {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
         {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
@@ -1428,20 +1428,20 @@ export default {
           console.log("data",data);
           this.lqlocastan=data;
           this.lqlocastanid=data.id;
-          this.tableData1[0].column2=this.lqlocastan.locasx1;
-          this.tableData1[0].column4=this.lqlocastan.locasy1;
-          this.tableData2[0].column2=this.lqlocastan.locasx2;
-          this.tableData2[0].column4=this.lqlocastan.locasy2;
-          this.tableData3[0].column2=this.lqlocastan.locasx3;
-          this.tableData3[0].column4=this.lqlocastan.locasy3;
-          this.tableData4[0].column2=this.lqlocastan.locasx4;
-          this.tableData4[0].column4=this.lqlocastan.locasy4;
-          this.tableData5[0].column2=this.lqlocastan.locasx5;
-          this.tableData5[0].column4=this.lqlocastan.locasy5;
-          this.tableData6[0].column2=this.lqlocastan.locasx6;
-          this.tableData6[0].column4=this.lqlocastan.locasy6;
-          this.tableData7[0].column2=this.lqlocastan.locaspz1;
-          this.tableData8[0].column2=this.lqlocastan.locaspz2;
+          this.tableData1[2].column2=this.lqlocastan.locasx1;
+          this.tableData1[2].column4=this.lqlocastan.locasy1;
+          this.tableData2[2].column2=this.lqlocastan.locasx2;
+          this.tableData2[2].column4=this.lqlocastan.locasy2;
+          this.tableData3[2].column2=this.lqlocastan.locasx3;
+          this.tableData3[2].column4=this.lqlocastan.locasy3;
+          this.tableData4[2].column2=this.lqlocastan.locasx4;
+          this.tableData4[2].column4=this.lqlocastan.locasy4;
+          this.tableData5[2].column2=this.lqlocastan.locasx5;
+          this.tableData5[2].column4=this.lqlocastan.locasy5;
+          this.tableData6[2].column2=this.lqlocastan.locasx6;
+          this.tableData6[2].column4=this.lqlocastan.locasy6;
+          this.tableData7[2].column2=this.lqlocastan.locaspz1;
+          this.tableData8[2].column2=this.lqlocastan.locaspz2;
         }
       });
     },

@@ -1,12 +1,12 @@
 <template>
-    <div class="leftwai">
+    <div class="wing">
       <!-- <div class="tree_content"></div> -->
       <div class="data_content fl">
         <div class="fasten_content fl">
           <div class="fasten_title">
             <img style="margin-left:-30px;margin-top:-6px" width="30px" height="30px"
               src="@/assets/images/HDYMJQRZK/机器人/机器人.png" alt="" />
-            机翼吊装
+            2站位-机翼吊装
           </div>
         </div>
         <div class="data_top fl">
