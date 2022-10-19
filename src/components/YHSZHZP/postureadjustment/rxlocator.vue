@@ -691,12 +691,16 @@ export default {
     let Lx='1';
     //这里存放数据
     return {
+      rxlocaload1id:0,
+      rxlocaload2id:0,
       rxbasestanid:0,
       rxlocastan1id:0,
       rxlocastan2id:0,
       rxbasedisid:0,
       rxlocadis1id:0,
       rxlocadis2id:0,
+      rxlocaload1:{},
+      rxlocaload2:{},
       rxbasedis:{},
       rxlocadis1:{},
       rxlocadis2:{},
@@ -1905,9 +1909,58 @@ export default {
         }
       });
     },
+    getrxlocaload1(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rxlocaload1/getlast/"+this.rxlocaload1id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rxlocaload1=data;
+          this.rxlocaload1id=data.id;
+          this.tableData1[0].column8=this.rxlocaload1.loadx1;
+          this.tableData1[1].column8=this.rxlocaload1.loady1;
+          this.tableData1[2].column8=this.rxlocaload1.loadz1;
+          this.tableData2[0].column8=this.rxlocaload1.loadx2;
+          this.tableData2[1].column8=this.rxlocaload1.loady2;
+          this.tableData2[2].column8=this.rxlocaload1.loadz2;
+          this.tableData3[0].column8=this.rxlocaload1.loadx3;
+          this.tableData3[1].column8=this.rxlocaload1.loady3;
+          this.tableData3[2].column8=this.rxlocaload1.loadz3;
+          this.tableData4[0].column8=this.rxlocaload1.loadx4;
+          this.tableData4[1].column8=this.rxlocaload1.loady4;
+          this.tableData4[2].column8=this.rxlocaload1.loadz4;
+        }
+      });
+    },
+    getrxlocaload2(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/rxlocaload2/getlast/"+this.rxlocaload2id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.rxlocaload2=data;
+          this.rxlocaload2id=data.id;
+          this.tableData5[0].column8=this.rxlocaload2.loadx5;
+          this.tableData5[1].column8=this.rxlocaload2.loady5;
+          this.tableData5[2].column8=this.rxlocaload2.loadz5;
+          this.tableData6[0].column8=this.rxlocaload2.loadx6;
+          this.tableData6[1].column8=this.rxlocaload2.loady6;
+          this.tableData6[2].column8=this.rxlocaload2.loadz6;
+          this.tableData7[0].column8=this.rxlocaload2.loadx7;
+          this.tableData7[1].column8=this.rxlocaload2.loady7;
+          this.tableData7[2].column8=this.rxlocaload2.loadz7;
+          this.tableData8[0].column8=this.rxlocaload2.loadx8;
+          this.tableData8[1].column8=this.rxlocaload2.loady8;
+          this.tableData8[2].column8=this.rxlocaload2.loadz8;
+        }
+      });
+    },
     getrxdeltaloca1(){
       this.getrxlocadis1();
       this.getrxlocastan1();
+      this.getrxlocaload1();
       this.tableData1[1].column2=(this.rxlocastan1.locasx1-this.rxlocadis1.locax1).toFixed(2);
       this.tableData1[1].column4=(this.rxlocastan1.locasy1-this.rxlocadis1.locay1).toFixed(2);
       this.tableData1[1].column6=(this.rxlocastan1.locasz1-this.rxlocadis1.locaz1).toFixed(2);
@@ -1922,8 +1975,9 @@ export default {
       this.tableData4[1].column6=(this.rxlocastan1.locasz4-this.rxlocadis1.locax1).toFixed(2);
     },
     getrxdeltaloca2(){
-      this.getrxlocadis1();
-      this.getrxlocastan1();
+      this.getrxlocadis2();
+      this.getrxlocastan2();
+      this.getrxlocaload2();
       this.tableData5[1].column2=(this.rxlocastan2.locasx1-this.rxlocadis2.locax1).toFixed(2);
       this.tableData5[1].column4=(this.rxlocastan2.locasy1-this.rxlocadis2.locay1).toFixed(2);
       this.tableData5[1].column6=(this.rxlocastan2.locasz1-this.rxlocadis2.locaz1).toFixed(2);
@@ -1965,15 +2019,15 @@ export default {
           this.tableData1[0].column8=this.rxlocaload1.loadx1;
           this.tableData1[1].column8=this.rxlocaload1.loady1;
           this.tableData1[2].column8=this.rxlocaload1.loadz1;
-          this.tableData1[0].column8=this.rxlocaload1.loadx2;
-          this.tableData1[1].column8=this.rxlocaload1.loady2;
-          this.tableData1[2].column8=this.rxlocaload1.loadz2;
-          this.tableData1[0].column8=this.rxlocaload1.loadx3;
-          this.tableData1[1].column8=this.rxlocaload1.loady3;
-          this.tableData1[2].column8=this.rxlocaload1.loadz3;
-          this.tableData1[0].column8=this.rxlocaload1.loadx4;
-          this.tableData1[1].column8=this.rxlocaload1.loady4;
-          this.tableData1[2].column8=this.rxlocaload1.loadz4;
+          this.tableData2[0].column8=this.rxlocaload1.loadx2;
+          this.tableData2[1].column8=this.rxlocaload1.loady2;
+          this.tableData2[2].column8=this.rxlocaload1.loadz2;
+          this.tableData3[0].column8=this.rxlocaload1.loadx3;
+          this.tableData3[1].column8=this.rxlocaload1.loady3;
+          this.tableData3[2].column8=this.rxlocaload1.loadz3;
+          this.tableData4[0].column8=this.rxlocaload1.loadx4;
+          this.tableData4[1].column8=this.rxlocaload1.loady4;
+          this.tableData4[2].column8=this.rxlocaload1.loadz4;
         }
       });
     },
@@ -1986,18 +2040,18 @@ export default {
           console.log("data",data);
           this.rxlocaload2=data;
           this.rxlocaload2id=data.id;
-          this.tableData1[0].column8=this.rxlocaload2.loadx5;
-          this.tableData1[1].column8=this.rxlocaload2.loady5;
-          this.tableData1[2].column8=this.rxlocaload2.loadz5;
-          this.tableData1[0].column8=this.rxlocaload2.loadx6;
-          this.tableData1[1].column8=this.rxlocaload2.loady6;
-          this.tableData1[2].column8=this.rxlocaload2.loadz6;
-          this.tableData1[0].column8=this.rxlocaload2.loadx7;
-          this.tableData1[1].column8=this.rxlocaload2.loady7;
-          this.tableData1[2].column8=this.rxlocaload2.loadz7;
-          this.tableData1[0].column8=this.rxlocaload2.loadx8;
-          this.tableData1[1].column8=this.rxlocaload2.loady8;
-          this.tableData1[2].column8=this.rxlocaload2.loadz8;
+          this.tableData5[0].column8=this.rxlocaload2.loadx5;
+          this.tableData5[1].column8=this.rxlocaload2.loady5;
+          this.tableData5[2].column8=this.rxlocaload2.loadz5;
+          this.tableData6[0].column8=this.rxlocaload2.loadx6;
+          this.tableData6[1].column8=this.rxlocaload2.loady6;
+          this.tableData6[2].column8=this.rxlocaload2.loadz6;
+          this.tableData7[0].column8=this.rxlocaload2.loadx7;
+          this.tableData7[1].column8=this.rxlocaload2.loady7;
+          this.tableData7[2].column8=this.rxlocaload2.loadz7;
+          this.tableData8[0].column8=this.rxlocaload2.loadx8;
+          this.tableData8[1].column8=this.rxlocaload2.loady8;
+          this.tableData8[2].column8=this.rxlocaload2.loadz8;
         }
       });
     },
@@ -2118,6 +2172,7 @@ export default {
       // this.getData();
       this.getrxdeltaloca1();
       this.getrxdeltaloca2();
+      this.getrxdeltabase();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {

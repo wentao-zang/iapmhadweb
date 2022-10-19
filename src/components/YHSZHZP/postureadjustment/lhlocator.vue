@@ -637,12 +637,18 @@ export default {
     let Lx='1';
     //这里存放数据
     return {
+      lhlocaload1id:0,
+      lhlocaload2id:0,
+      lhlocaload3id:0,
       lhlocadis1id:0,
       lhlocadis2id:0,
       lhlocadis3id:0,
       lhlocastan1id:0,
       lhlocastan2id:0,
       lhlocastan3id:0,
+      lhlocaload1:{},
+      lhlocaload2:{},
+      lhlocadis3:{},
       lhlocadis1:{},
       lhlocadis2:{},
       lhlocadis3:{},
@@ -1841,53 +1847,128 @@ export default {
         }
       });
     },
+    getlhlocaload1(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/lhlocaload1/getlast/"+this.lhlocaload1id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.lhlocaload1=data;
+          this.lhlocaload1id=data.id;
+          this.tableData1[0].column8=this.lhlocaload1.loadx1;
+          this.tableData1[1].column8=this.lhlocaload1.loady1;
+          this.tableData1[2].column8=this.lhlocaload1.loadz1;
+          this.tableData2[0].column8=this.lhlocaload1.loadx2;
+          this.tableData2[1].column8=this.lhlocaload1.loady2;
+          this.tableData2[2].column8=this.lhlocaload1.loadz2;
+          this.tableData3[0].column8=this.lhlocaload1.loadx3;
+          this.tableData3[1].column8=this.lhlocaload1.loady3;
+          this.tableData3[2].column8=this.lhlocaload1.loadz3;
+          this.tableData4[0].column8=this.lhlocaload1.loadx4;
+          this.tableData4[1].column8=this.lhlocaload1.loady4;
+          this.tableData4[2].column8=this.lhlocaload1.loadz4;
+        }
+      });
+    },
+    getlhlocaload2(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/lhlocaload2/getlast/"+this.lhlocaload2id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.lhlocaload2=data;
+          this.lhlocaload2id=data.id;
+          this.tableData5[0].column8=this.lhlocaload2.loadx5;
+          this.tableData5[1].column8=this.lhlocaload2.loady5;
+          this.tableData5[2].column8=this.lhlocaload2.loadz5;
+          this.tableData6[0].column8=this.lhlocaload2.loadx6;
+          this.tableData6[1].column8=this.lhlocaload2.loady6;
+          this.tableData6[2].column8=this.lhlocaload2.loadz6;
+          this.tableData7[0].column8=this.lhlocaload2.loadx7;
+          this.tableData7[1].column8=this.lhlocaload2.loady7;
+          this.tableData7[2].column8=this.lhlocaload2.loadz7;
+          this.tableData8[0].column8=this.lhlocaload2.loadx8;
+          this.tableData8[1].column8=this.lhlocaload2.loady8;
+          this.tableData8[2].column8=this.lhlocaload2.loadz8;
+        }
+      });
+    },
+    getlhlocaload3(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/lhlocaload3/getlast/"+this.lhlocaload3id),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.lhlocaload3=data;
+          this.lhlocaload3id=data.id;
+          this.tableData9[0].column8=this.lhlocaload3.loadx9;
+          this.tableData9[1].column8=this.lhlocaload3.loady9;
+          this.tableData9[2].column8=this.lhlocaload3.loadz9;
+          this.tableData10[0].column8=this.lhlocaload3.loadx10;
+          this.tableData10[1].column8=this.lhlocaload3.loady10;
+          this.tableData10[2].column8=this.lhlocaload3.loadz10;
+          this.tableData11[0].column8=this.lhlocaload3.loadx11;
+          this.tableData11[1].column8=this.lhlocaload3.loady11;
+          this.tableData11[2].column8=this.lhlocaload3.loadz11;
+          this.tableData12[0].column8=this.lhlocaload3.loadx12;
+          this.tableData12[1].column8=this.lhlocaload3.loady12;
+          this.tableData12[2].column8=this.lhlocaload3.loadz12;
+        }
+      });
+    },
     getlhdeltaloca1(){
       this.getlhlocadis1();
       this.getlhlocastan1();
+      this.getlhlocaload1();
       this.tableData1[1].column2=(this.lhlocastan1.locasx1-this.lhlocadis1.locax1).toFixed(2);
       this.tableData1[1].column4=(this.lhlocastan1.locasy1-this.lhlocadis1.locay1).toFixed(2);
-      this.tableData1[1].column2=(this.lhlocastan1.locasz1-this.lhlocadis1.locaz1).toFixed(2);
-      this.tableData2[1].column4=(this.lhlocastan1.locasx2-this.lhlocadis1.locax2).toFixed(2);
-      this.tableData2[1].column2=(this.lhlocastan1.locasy2-this.lhlocadis1.locay2).toFixed(2);
-      this.tableData2[1].column4=(this.lhlocastan1.locasz2-this.lhlocadis1.locaz2).toFixed(2);
+      this.tableData1[1].column6=(this.lhlocastan1.locasz1-this.lhlocadis1.locaz1).toFixed(2);
+      this.tableData2[1].column2=(this.lhlocastan1.locasx2-this.lhlocadis1.locax2).toFixed(2);
+      this.tableData2[1].column4=(this.lhlocastan1.locasy2-this.lhlocadis1.locay2).toFixed(2);
+      this.tableData2[1].column6=(this.lhlocastan1.locasz2-this.lhlocadis1.locaz2).toFixed(2);
       this.tableData3[1].column2=(this.lhlocastan1.locasx3-this.lhlocadis1.locax3).toFixed(2);
       this.tableData3[1].column4=(this.lhlocastan1.locasy3-this.lhlocadis1.locay3).toFixed(2);
-      this.tableData3[1].column2=(this.lhlocastan1.locasz3-this.lhlocadis1.locaz3).toFixed(2);
-      this.tableData4[1].column4=(this.lhlocastan1.locasx4-this.lhlocadis1.locax4).toFixed(2);
-      this.tableData4[1].column2=(this.lhlocastan1.locasy4-this.lhlocadis1.locay4).toFixed(2);
-      this.tableData4[1].column4=(this.lhlocastan1.locasz4-this.lhlocadis1.locaz4).toFixed(2);
+      this.tableData3[1].column6=(this.lhlocastan1.locasz3-this.lhlocadis1.locaz3).toFixed(2);
+      this.tableData4[1].column2=(this.lhlocastan1.locasx4-this.lhlocadis1.locax4).toFixed(2);
+      this.tableData4[1].column4=(this.lhlocastan1.locasy4-this.lhlocadis1.locay4).toFixed(2);
+      this.tableData4[1].column6=(this.lhlocastan1.locasz4-this.lhlocadis1.locaz4).toFixed(2);
     },
     getlhdeltaloca2(){
       this.getlhlocadis2();
       this.getlhlocastan2();
+      this.getlhlocaload2();
       this.tableData5[1].column2=(this.lhlocastan2.locasx5-this.lhlocadis2.locax5).toFixed(2);
       this.tableData5[1].column4=(this.lhlocastan2.locasy5-this.lhlocadis2.locay5).toFixed(2);
-      this.tableData5[1].column2=(this.lhlocastan2.locasz5-this.lhlocadis2.locaz5).toFixed(2);
-      this.tableData6[1].column4=(this.lhlocastan2.locasx6-this.lhlocadis2.locax6).toFixed(2);
-      this.tableData6[1].column2=(this.lhlocastan2.locasy6-this.lhlocadis2.locay6).toFixed(2);
-      this.tableData6[1].column4=(this.lhlocastan2.locasz6-this.lhlocadis2.locaz6).toFixed(2);
+      this.tableData5[1].column6=(this.lhlocastan2.locasz5-this.lhlocadis2.locaz5).toFixed(2);
+      this.tableData6[1].column2=(this.lhlocastan2.locasx6-this.lhlocadis2.locax6).toFixed(2);
+      this.tableData6[1].column4=(this.lhlocastan2.locasy6-this.lhlocadis2.locay6).toFixed(2);
+      this.tableData6[1].column6=(this.lhlocastan2.locasz6-this.lhlocadis2.locaz6).toFixed(2);
       this.tableData7[1].column2=(this.lhlocastan2.locasx7-this.lhlocadis2.locax7).toFixed(2);
       this.tableData7[1].column4=(this.lhlocastan2.locasy7-this.lhlocadis2.locay7).toFixed(2);
-      this.tableData7[1].column2=(this.lhlocastan2.locasz7-this.lhlocadis2.locaz7).toFixed(2);
-      this.tableData8[1].column4=(this.lhlocastan2.locasx8-this.lhlocadis2.locax8).toFixed(2);
-      this.tableData8[1].column2=(this.lhlocastan2.locasy8-this.lhlocadis2.locay8).toFixed(2);
-      this.tableData8[1].column4=(this.lhlocastan2.locasz8-this.lhlocadis2.locaz8).toFixed(2);
+      this.tableData7[1].column6=(this.lhlocastan2.locasz7-this.lhlocadis2.locaz7).toFixed(2);
+      this.tableData8[1].column2=(this.lhlocastan2.locasx8-this.lhlocadis2.locax8).toFixed(2);
+      this.tableData8[1].column4=(this.lhlocastan2.locasy8-this.lhlocadis2.locay8).toFixed(2);
+      this.tableData8[1].column6=(this.lhlocastan2.locasz8-this.lhlocadis2.locaz8).toFixed(2);
     },
     getlhdeltaloca3(){
       this.getlhlocadis3();
       this.getlhlocastan3();
+      this.getlhlocaload3();
       this.tableData9[1].column2=(this.lhlocastan3.locasx9-this.lhlocadis3.locax9).toFixed(2);
       this.tableData9[1].column4=(this.lhlocastan3.locasy9-this.lhlocadis3.locay9).toFixed(2);
-      this.tableData9[1].column2=(this.lhlocastan3.locasz9-this.lhlocadis3.locaz9).toFixed(2);
-      this.tableData10[1].column4=(this.lhlocastan3.locasx10-this.lhlocadis3.locax10).toFixed(2);
-      this.tableData10[1].column2=(this.lhlocastan3.locasy10-this.lhlocadis3.locay10).toFixed(2);
-      this.tableData10[1].column4=(this.lhlocastan3.locasz10-this.lhlocadis3.locaz10).toFixed(2);
+      this.tableData9[1].column6=(this.lhlocastan3.locasz9-this.lhlocadis3.locaz9).toFixed(2);
+      this.tableData10[1].column2=(this.lhlocastan3.locasx10-this.lhlocadis3.locax10).toFixed(2);
+      this.tableData10[1].column4=(this.lhlocastan3.locasy10-this.lhlocadis3.locay10).toFixed(2);
+      this.tableData10[1].column6=(this.lhlocastan3.locasz10-this.lhlocadis3.locaz10).toFixed(2);
       this.tableData11[1].column2=(this.lhlocastan3.locasx11-this.lhlocadis3.locax11).toFixed(2);
       this.tableData11[1].column4=(this.lhlocastan3.locasy11-this.lhlocadis3.locay11).toFixed(2);
-      this.tableData11[1].column2=(this.lhlocastan3.locasz11-this.lhlocadis3.locaz11).toFixed(2);
-      this.tableData12[1].column4=(this.lhlocastan3.locasx12-this.lhlocadis3.locax12).toFixed(2);
-      this.tableData12[1].column2=(this.lhlocastan3.locasy12-this.lhlocadis3.locay12).toFixed(2);
-      this.tableData12[1].column4=(this.lhlocastan3.locasz12-this.lhlocadis3.locaz12).toFixed(2);
+      this.tableData11[1].column6=(this.lhlocastan3.locasz11-this.lhlocadis3.locaz11).toFixed(2);
+      this.tableData12[1].column2=(this.lhlocastan3.locasx12-this.lhlocadis3.locax12).toFixed(2);
+      this.tableData12[1].column4=(this.lhlocastan3.locasy12-this.lhlocadis3.locay12).toFixed(2);
+      this.tableData12[1].column6=(this.lhlocastan3.locasz12-this.lhlocadis3.locaz12).toFixed(2);
     },
     getData() {
       this.getD();

@@ -1908,6 +1908,7 @@ export default {
     getrsdeltaloca1(){
       this.getrslocadis1();
       this.getrslocastan1();
+      this.getrslocaload1();
       this.tableData1[1].column2=(this.rslocastan1.locasx1-this.rslocadis1.locax1).toFixed(2);
       this.tableData1[1].column4=(this.rslocastan1.locasy1-this.rslocadis1.locay1).toFixed(2);
       this.tableData1[1].column6=(this.rslocastan1.locasz1-this.rslocadis1.locaz1).toFixed(2);
@@ -1922,8 +1923,9 @@ export default {
       this.tableData4[1].column6=(this.rslocastan1.locasz4-this.rslocadis1.locax1).toFixed(2);
     },
     getrsdeltaloca2(){
-      this.getrslocadis1();
-      this.getrslocastan1();
+      this.getrslocadis2();
+      this.getrslocastan2();
+      this.getrslocaload2();
       this.tableData5[1].column2=(this.rslocastan2.locasx1-this.rslocadis2.locax1).toFixed(2);
       this.tableData5[1].column4=(this.rslocastan2.locasy1-this.rslocadis2.locay1).toFixed(2);
       this.tableData5[1].column6=(this.rslocastan2.locasz1-this.rslocadis2.locaz1).toFixed(2);
@@ -1965,15 +1967,15 @@ export default {
           this.tableData1[0].column8=this.rslocaload1.loadx1;
           this.tableData1[1].column8=this.rslocaload1.loady1;
           this.tableData1[2].column8=this.rslocaload1.loadz1;
-          this.tableData1[0].column8=this.rslocaload1.loadx2;
-          this.tableData1[1].column8=this.rslocaload1.loady2;
-          this.tableData1[2].column8=this.rslocaload1.loadz2;
-          this.tableData1[0].column8=this.rslocaload1.loadx3;
-          this.tableData1[1].column8=this.rslocaload1.loady3;
-          this.tableData1[2].column8=this.rslocaload1.loadz3;
-          this.tableData1[0].column8=this.rslocaload1.loadx4;
-          this.tableData1[1].column8=this.rslocaload1.loady4;
-          this.tableData1[2].column8=this.rslocaload1.loadz4;
+          this.tableData2[0].column8=this.rslocaload1.loadx2;
+          this.tableData2[1].column8=this.rslocaload1.loady2;
+          this.tableData2[2].column8=this.rslocaload1.loadz2;
+          this.tableData3[0].column8=this.rslocaload1.loadx3;
+          this.tableData3[1].column8=this.rslocaload1.loady3;
+          this.tableData3[2].column8=this.rslocaload1.loadz3;
+          this.tableData4[0].column8=this.rslocaload1.loadx4;
+          this.tableData4[1].column8=this.rslocaload1.loady4;
+          this.tableData4[2].column8=this.rslocaload1.loadz4;
         }
       });
     },
@@ -1986,18 +1988,18 @@ export default {
           console.log("data",data);
           this.rslocaload2=data;
           this.rslocaload2id=data.id;
-          this.tableData1[0].column8=this.rslocaload2.loadx5;
-          this.tableData1[1].column8=this.rslocaload2.loady5;
-          this.tableData1[2].column8=this.rslocaload2.loadz5;
-          this.tableData1[0].column8=this.rslocaload2.loadx6;
-          this.tableData1[1].column8=this.rslocaload2.loady6;
-          this.tableData1[2].column8=this.rslocaload2.loadz6;
-          this.tableData1[0].column8=this.rslocaload2.loadx7;
-          this.tableData1[1].column8=this.rslocaload2.loady7;
-          this.tableData1[2].column8=this.rslocaload2.loadz7;
-          this.tableData1[0].column8=this.rslocaload2.loadx8;
-          this.tableData1[1].column8=this.rslocaload2.loady8;
-          this.tableData1[2].column8=this.rslocaload2.loadz8;
+          this.tableData5[0].column8=this.rslocaload2.loadx5;
+          this.tableData5[1].column8=this.rslocaload2.loady5;
+          this.tableData5[2].column8=this.rslocaload2.loadz5;
+          this.tableData6[0].column8=this.rslocaload2.loadx6;
+          this.tableData6[1].column8=this.rslocaload2.loady6;
+          this.tableData6[2].column8=this.rslocaload2.loadz6;
+          this.tableData7[0].column8=this.rslocaload2.loadx7;
+          this.tableData7[1].column8=this.rslocaload2.loady7;
+          this.tableData7[2].column8=this.rslocaload2.loadz7;
+          this.tableData8[0].column8=this.rslocaload2.loadx8;
+          this.tableData8[1].column8=this.rslocaload2.loady8;
+          this.tableData8[2].column8=this.rslocaload2.loadz8;
         }
       });
     },
@@ -2118,6 +2120,7 @@ export default {
       // this.getData();
       this.getrsdeltaloca1();
       this.getrsdeltaloca2();
+      this.getrsdeltabase();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {

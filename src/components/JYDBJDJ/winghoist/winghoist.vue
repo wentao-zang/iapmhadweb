@@ -229,12 +229,12 @@
       let Lx='1';
       //这里存放数据
       return {
-        lslocadis1:{
-          lastId:0,
-          locax1:'',
-          locay1:'',
-          locaz1:''
-        },
+        jylocadisid:0,
+        jylocastanid:0,
+        jylocaloadid:0,
+        jylocadis:{},
+        jylocastan:{},
+        jylocaload:{},
         tableData1: [
           {column1:'Xc',column2:`${Xc}`,column3:'Yc',column4:`${Yc}`,column5:'Zc',column6:`${Zc}`,column7:'Lx',column8:`${Lx}`},
           {column1:'△X',column2:`${Xc}`,column3:'△Y',column4:`${Yc}`,column5:'△Z',column6:`${Zc}`,column7:'Ly',column8:`${Lx}`},
@@ -1243,16 +1243,94 @@
       };
     },
     methods: {
-      getlslocadis1(){
-        this.$http({
-          url: this.$http.adornUrl("yhpa/lslocadis1/getlast/"+this.lslocadis1.lastId),
-          method: "get",
-        }).then(({ data }) => {
+      getjylocadis(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/jylocadis/getlast/"+this.jylocadisid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
           console.log("data",data);
-          if (data!='') {
-          }
-        });
-      },
+          this.jylocadis=data;
+          this.jylocadisid=data.id;
+          this.tableData1[0].column2=this.jylocadis.locax1;
+          this.tableData1[0].column4=this.jylocadis.locay1;
+          this.tableData1[0].column6=this.jylocadis.locaz1;
+          this.tableData2[0].column2=this.jylocadis.locax2;
+          this.tableData2[0].column4=this.jylocadis.locay2;
+          this.tableData2[0].column6=this.jylocadis.locaz2;
+          this.tableData3[0].column2=this.jylocadis.locax3;
+          this.tableData3[0].column4=this.jylocadis.locay3;
+          this.tableData3[0].column6=this.jylocadis.locaz3;
+          this.tableData4[0].column2=this.jylocadis.locax4;
+          this.tableData4[0].column4=this.jylocadis.locay4;
+          this.tableData4[0].column6=this.jylocadis.locaz4;
+        }
+      });
+    },
+    getjylocastan(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/jylocastan/getlast/"+this.jylocastanid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.jylocastan=data;
+          this.jylocastanid=data.id;
+          this.tableData1[2].column2=this.jylocastan.locasx1;
+          this.tableData1[2].column4=this.jylocastan.locasy1;
+          this.tableData1[2].column6=this.jylocastan.locasz1;
+          this.tableData2[2].column2=this.jylocastan.locasx2;
+          this.tableData2[2].column4=this.jylocastan.locasy2;
+          this.tableData2[2].column6=this.jylocastan.locasz2;
+          this.tableData3[2].column2=this.jylocastan.locasx3;
+          this.tableData3[2].column4=this.jylocastan.locasy3;
+          this.tableData3[2].column6=this.jylocastan.locasz3;
+          this.tableData4[2].column2=this.jylocastan.locasx4;
+          this.tableData4[2].column4=this.jylocastan.locasy4;
+          this.tableData4[2].column6=this.jylocastan.locasz4;
+        }
+      });
+    },
+    getjylocaload(){
+      this.$http({
+        url: this.$http.adornUrl("yhpa/jylocaload/getlast/"+this.jylocaloadid),
+        method: "get",
+      }).then(({ data }) => {
+        if (data!='') {
+          console.log("data",data);
+          this.jylocaload=data;
+          this.jylocaloadid=data.id;
+          this.tableData1[0].column8=this.jylocaload.loadx1;
+          this.tableData1[1].column8=this.jylocaload.loady1;
+          this.tableData1[2].column8=this.jylocaload.loadz1;
+          this.tableData2[0].column8=this.jylocaload.loadx2;
+          this.tableData2[1].column8=this.jylocaload.loady2;
+          this.tableData2[2].column8=this.jylocaload.loadz2;
+          this.tableData3[0].column8=this.jylocaload.loadx3;
+          this.tableData3[1].column8=this.jylocaload.loady3;
+          this.tableData3[2].column8=this.jylocaload.loadz3;
+          this.tableData4[0].column8=this.jylocaload.loadx4;
+          this.tableData4[1].column8=this.jylocaload.loady4;
+          this.tableData4[2].column8=this.jylocaload.loadz4;
+        }
+      });
+    },
+    getjydeltaloca(){
+      this.getjylocadis();
+      this.getjylocastan();
+      this.tableData1[1].column2=(this.jylocastan.locasx1-this.jylocadis.locax1).toFixed(2);
+      this.tableData1[1].column4=(this.jylocastan.locasy1-this.jylocadis.locay1).toFixed(2);
+      this.tableData1[1].column6=(this.jylocastan.locasz1-this.jylocadis.locaz1).toFixed(2);
+      this.tableData2[1].column2=(this.jylocastan.locasx2-this.jylocadis.locax2).toFixed(2);
+      this.tableData2[1].column4=(this.jylocastan.locasy2-this.jylocadis.locay2).toFixed(2);
+      this.tableData2[1].column6=(this.jylocastan.locasz2-this.jylocadis.locaz2).toFixed(2);
+      this.tableData3[1].column2=(this.jylocastan.locasx3-this.jylocadis.locax3).toFixed(2);
+      this.tableData3[1].column4=(this.jylocastan.locasy3-this.jylocadis.locay3).toFixed(2);
+      this.tableData3[1].column6=(this.jylocastan.locasz3-this.jylocadis.locaz3).toFixed(2);
+      this.tableData4[1].column2=(this.jylocastan.locasx4-this.jylocadis.locax4).toFixed(2);
+      this.tableData4[1].column4=(this.jylocastan.locasy4-this.jylocadis.locay4).toFixed(2);
+      this.tableData4[1].column6=(this.jylocastan.locasz4-this.jylocadis.locaz4).toFixed(2);
+    },
       getData() {
         this.getD();
         this.getRealtime("posinfo", this.posinfo);
@@ -1368,7 +1446,8 @@
       });
       const timer = setInterval(() => {
         // this.getData();
-        this.getlslocadis1();
+        this.getjydeltaloca();
+        this.getjylocaload();
       }, 1000);
       // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
       this.$once("hook:beforeDestroy", () => {

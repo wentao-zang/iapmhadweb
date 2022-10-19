@@ -1908,6 +1908,7 @@ export default {
     getlxdeltaloca1(){
       this.getlxlocadis1();
       this.getlxlocastan1();
+      this.getlxlocaload1();
       this.tableData1[1].column2=(this.lxlocastan1.locasx1-this.lxlocadis1.locax1).toFixed(2);
       this.tableData1[1].column4=(this.lxlocastan1.locasy1-this.lxlocadis1.locay1).toFixed(2);
       this.tableData1[1].column6=(this.lxlocastan1.locasz1-this.lxlocadis1.locaz1).toFixed(2);
@@ -1922,8 +1923,9 @@ export default {
       this.tableData4[1].column6=(this.lxlocastan1.locasz4-this.lxlocadis1.locax1).toFixed(2);
     },
     getlxdeltaloca2(){
-      this.getlxlocadis1();
-      this.getlxlocastan1();
+      this.getlxlocadis2();
+      this.getlxlocastan2();
+      this.getlxlocaload2();
       this.tableData5[1].column2=(this.lxlocastan2.locasx1-this.lxlocadis2.locax1).toFixed(2);
       this.tableData5[1].column4=(this.lxlocastan2.locasy1-this.lxlocadis2.locay1).toFixed(2);
       this.tableData5[1].column6=(this.lxlocastan2.locasz1-this.lxlocadis2.locaz1).toFixed(2);
@@ -2118,6 +2120,7 @@ export default {
       // this.getData();
       this.getlxdeltaloca1();
       this.getlxdeltaloca2();
+      this.getlxdeltabase();
     }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {
