@@ -549,11 +549,6 @@ export default new Router({
           component: lwhoist
         },
         {
-          path: "jydbjdj/winghoist/rwhoist",
-          name: "rwhoist",
-          component: rwhoist
-        },
-        {
           path: "jydbjdj/winghoist/winghoist",
           name: "winghoist",
           component: winghoist

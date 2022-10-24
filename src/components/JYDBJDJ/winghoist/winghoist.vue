@@ -1445,7 +1445,7 @@
         this.XF();
       });
       const timer = setInterval(() => {
-        // this.getData();
+        // this.getData();n
         this.getjydeltaloca();
         this.getjylocaload();
       }, 1000);

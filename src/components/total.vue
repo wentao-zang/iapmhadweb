@@ -332,18 +332,13 @@ export default {
               label: "机翼吊装",
               children: [
                 {
-                  label: "左外翼吊装",
+                  label: "外翼吊装",
                   id: 311,
                   link: "/total/jydbjdj/winghoist/lwhoist"
                 },
                 {
-                  label: "右外翼吊装",
-                  id: 312,
-                  link: "/total/jydbjdj/winghoist/rwhoist"
-                },
-                {
                   label: "机翼吊装",
-                  id: 313,
+                  id: 312,
                   link: "/total/jydbjdj/winghoist/winghoist"
                 }
               ]

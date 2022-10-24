@@ -243,7 +243,7 @@
               右外翼定位器1位置(mm)与承载(t)
             </div>
             <div class="data_table">
-              <el-table :data="tableData3" style="width: 100%; height: 100%;"
+              <el-table :data="tableData5" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -293,7 +293,7 @@
               右外翼定位器2位置(mm)与承载(t)
             </div>
             <div class="data_table">
-              <el-table :data="tableData4" style="width: 100%; height: 100%;"
+              <el-table :data="tableData6" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -345,7 +345,7 @@
               右外翼定位器3位置(mm)与承载(t)
             </div>
             <div class="data_table">
-              <el-table :data="tableData3" style="width: 100%; height: 100%;"
+              <el-table :data="tableData7" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -395,7 +395,7 @@
               右外翼定位器4位置(mm)与承载(t)
             </div>
             <div class="data_table">
-              <el-table :data="tableData4" style="width: 100%; height: 100%;"
+              <el-table :data="tableData8" style="width: 100%; height: 100%;"
                 highlight-current-row:true 
                 :cell-style="{ textAlign: 'center' }">
                 <el-table-column prop="column1">
@@ -1480,7 +1480,7 @@ export default {
   methods: {
     getlwlocadis(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/lwlocadis/getlast/"+this.lwlocadisid),
+        url: this.$http.adornUrl("dbj/lwlocadis/getlast/"+this.lwlocadisid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
@@ -1504,14 +1504,16 @@ export default {
     },
     getrwlocadis(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/rwlocadis/getlast/"+this.rwlocadisid),
+        url: this.$http.adornUrl("dbj/rwlocadis/getlast/"+this.rwlocadisid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
-          console.log("data",data);
+          console.log("rdata",data);
           this.rwlocadis=data;
           this.rwlocadisid=data.id;
+          console.log("qdata",this.rwlocadisid);
           this.tableData5[0].column2=this.rwlocadis.locax1;
+          console.log("xdata",this.tableData5[0].column2);
           this.tableData5[0].column4=this.rwlocadis.locay1;
           this.tableData5[0].column6=this.rwlocadis.locaz1;
           this.tableData6[0].column2=this.rwlocadis.locax2;
@@ -1528,7 +1530,7 @@ export default {
     },
     getlwlocastan(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/lwlocastan/getlast/"+this.lwlocastanid),
+        url: this.$http.adornUrl("dbj/lwlocastan/getlast/"+this.lwlocastanid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
@@ -1552,7 +1554,7 @@ export default {
     },
     getrwlocastan(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/rwlocastan/getlast/"+this.rwlocastanid),
+        url: this.$http.adornUrl("dbj/rwlocastan/getlast/"+this.rwlocastanid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
@@ -1576,7 +1578,7 @@ export default {
     },
     getlwlocaload(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/lwlocaload/getlast/"+this.lwlocaloadid),
+        url: this.$http.adornUrl("dbj/lwlocaload/getlast/"+this.lwlocaloadid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
@@ -1600,7 +1602,7 @@ export default {
     },
     getrwlocaload(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/rwlocaload/getlast/"+this.rwlocaloadid),
+        url: this.$http.adornUrl("dbj/rwlocaload/getlast/"+this.rwlocaloadid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
@@ -1625,6 +1627,7 @@ export default {
     getlwdeltaloca(){
       this.getlwlocadis();
       this.getlwlocastan();
+      // this.getlwlocaload();
       this.tableData1[1].column2=(this.lwlocastan.locasx1-this.lwlocadis.locax1).toFixed(2);
       this.tableData1[1].column4=(this.lwlocastan.locasy1-this.lwlocadis.locay1).toFixed(2);
       this.tableData1[1].column6=(this.lwlocastan.locasz1-this.lwlocadis.locaz1).toFixed(2);
@@ -1641,6 +1644,7 @@ export default {
     getrwdeltaloca(){
       this.getrwlocadis();
       this.getrwlocastan();
+      // this.getrwlocaload();
       this.tableData5[1].column2=(this.rwlocastan.locasx1-this.rwlocadis.locax1).toFixed(2);
       this.tableData5[1].column4=(this.rwlocastan.locasy1-this.rwlocadis.locay1).toFixed(2);
       this.tableData5[1].column6=(this.rwlocastan.locasz1-this.rwlocadis.locaz1).toFixed(2);
