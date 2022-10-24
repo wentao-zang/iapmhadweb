@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div>
+  <div class="aS">
     <div class="data_content">
       <div class="content1 fl">
         <div class="data1 fl" style="cursor: pointer">
@@ -244,7 +244,7 @@
             collapse-tags
             clearable
             @change="handleChange"
-            style="height:20%;width: 40%;"
+            style="height:20%;width: 60%;"
           ></el-cascader>
           <el-button type="success" @click="select">查询</el-button>
         </div>
@@ -256,7 +256,7 @@
             collapse-tags
             clearable
             @change="handleChange1"
-            style="height:20%;width: 40%;"
+            style="height:20%;width: 60%;"
           ></el-cascader>
           <el-button type="success" @click="select1">查询</el-button>
         </div>

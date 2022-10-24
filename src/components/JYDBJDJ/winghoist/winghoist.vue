@@ -1245,7 +1245,7 @@
     methods: {
       getjylocadis(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/jylocadis/getlast/"+this.jylocadisid),
+        url: this.$http.adornUrl("dbj/jylocadis/getlast/"+this.jylocadisid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
@@ -1269,7 +1269,7 @@
     },
     getjylocastan(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/jylocastan/getlast/"+this.jylocastanid),
+        url: this.$http.adornUrl("dbj/jylocastan/getlast/"+this.jylocastanid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {
@@ -1293,7 +1293,7 @@
     },
     getjylocaload(){
       this.$http({
-        url: this.$http.adornUrl("yhpa/jylocaload/getlast/"+this.jylocaloadid),
+        url: this.$http.adornUrl("dbj/jylocaload/getlast/"+this.jylocaloadid),
         method: "get",
       }).then(({ data }) => {
         if (data!='') {

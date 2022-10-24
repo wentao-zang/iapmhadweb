@@ -1046,3 +1046,310 @@ tbody tr:nth-child(33) {
   width: 50%;
   /* border: 1px solid #23ca1e; */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.aS .data_content {
+    /* min-width: 1366px; */
+    width: 84%;
+    height: 91%;
+    padding-top: 1%;
+    /* border: solid #ffff43 2px; */
+    float: left;
+    /* background-color: #ffff43; */
+}
+.aS .data_content .content1 {
+    width: 100%;
+    height: 100px;
+    /* border: solid #ffff43 2px; */
+    /* margin-top: 20px; */
+}
+
+
+.aS .data_content .content2 {
+    width: 100%;
+    height: 310px;
+    /* border: solid #ffff43 2px; */
+    margin-top: 20px;
+}
+
+
+.aS .data_content .content3 {
+    width: 93%;
+    height: 250px;
+    /* border: solid #ffff43 2px; */
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+.aS .data_content .content4 {
+    width: 100%;
+    height: 400px;
+    /* border: solid #ffff43 2px; */
+    margin-top: -150px;
+}
+
+
+
+
+
+
+
+
+
+
+.aS .data_content .content1 .data1 {
+    width: 14.8%;
+    height: 100%;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+    /* border: solid #43ff8e 2px; */
+}
+
+
+.aS .data_content .content1 .data2 {
+    width: 14%;
+    height: 100px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .content1 .data3 {
+    width: 14%;
+    height: 100px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .content1 .data4 {
+    width: 47.5%;
+    height: 100px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .content2 .data1 {
+    width: 35.2%;
+    height: 310px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+
+.aS .data_content .content2 .data2 {
+    width: 35.2%;
+    height: 310px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+
+.aS .data_content .content2 .data3 {
+    width: 23%;
+    height: 310px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .content3 .data1 {
+    width: 23%;
+    height: 250px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+    /* border: solid #43ff8e 2px; */
+}
+
+.aS .data_content .content3 .data2 {
+    width: 23%;
+    height: 250px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+    /* border: solid #43ff8e 2px; */
+}
+
+.aS .data_content .content3 .data3 {
+    width: 23%;
+    height: 250px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+    /* border: solid #43ff8e 2px; */
+}
+
+.aS .data_content .content3 .data4 {
+    width: 23%;
+    height: 250px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+    /* border: solid #43ff8e 2px; */
+}
+
+.aS .data_content .content4 .data1 {
+    width: 40%;
+    height: 390px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .content4 .data2 {
+    width: 40%;
+    height: 390px;
+    margin-left: 100px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .content4 .data3 {
+    width: 23%;
+    height: 240px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .content4 .data4 {
+    width: 23%;
+    height: 240px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    float: left;
+}
+
+.aS .data_content .data_title {
+    width: 245px;
+    height: 35px;
+    line-height: 33px;
+    background-color: #2C58A6;
+    border-radius: 18px;
+    position: absolute;
+    top: -17px;
+    left: 40%;
+    margin-left: -90px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding-left: 0px;
+    z-index: 1000;
+    text-align: center;
+}
+
+
+.aS .data_content .data_title img {
+    position: absolute;
+    top: 8px;
+    /* float: right; */
+    margin-left: -20px;
+    /* left: 20px; */
+}
+
+.aS .content3 .block1{
+    width: 50%;
+    /* height: 350px; */
+    /* border: 10px solid #23ca1e; */
+  }
+
+
+/* .aS .tree_content {
+    width: 16%;
+    height: 200%;
+    padding-top: 1%;
+    padding-bottom: 20px;
+    float: left;
+} */
