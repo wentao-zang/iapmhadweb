@@ -1,5 +1,5 @@
 <template>
-  <div class="fasten">
+  <div class="robot">
     <!-- <div class="tree_content"></div> -->
     <div class="data_content fl">
       <div class="fasten_content fl t_btn6" style="cursor: pointer">
@@ -103,7 +103,7 @@
                 src="@/assets/images/HDYMJQRZK/机器人/角度.png"
                 alt=""
               />
-              机器人各轴角度
+              机器人各轴速度
             </div>
             <div class="chartDiv">
               <v-chart class="chart" :option="option1" />
@@ -139,46 +139,10 @@
                 src="@/assets/images/HDYMJQRZK/机器人/加速度.png"
                 alt=""
               />
-              机器人各轴加速度
-            </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option2" />
-            </div>
-          </div>
-          <div class="data3 fl t_btn6" style="cursor: pointer">
-            <!--左上十字边框-->
-            <div class="t_line_box">
-              <i class="t_l_line"></i>
-              <i class="l_t_line"></i>
-            </div>
-            <!--右上边框-->
-            <div class="t_line_box">
-              <i class="t_r_line"></i>
-              <i class="r_t_line"></i>
-            </div>
-            <!--左下边框-->
-            <div class="t_line_box">
-              <i class="l_b_line"></i>
-              <i class="b_l_line"></i>
-            </div>
-            <!--右下边框-->
-            <div class="t_line_box">
-              <i class="r_b_line"></i>
-              <i class="b_r_line"></i>
-            </div>
-            <!-- 左上框标题 -->
-            <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/电流.png"
-                alt=""
-              />
               机器人各轴电流
             </div>
             <div class="chartDiv">
-              <v-chart class="chart" :option="option3" />
+              <v-chart class="chart" :option="option2" />
             </div>
           </div>
         </div>
@@ -216,7 +180,7 @@
               机器人各轴转矩
             </div>
             <div class="chartDiv">
-              <v-chart class="chart" :option="option4" />
+              <v-chart class="chart" :option="option3" />
             </div>
           </div>
           <div class="data2 fl t_btn6" style="cursor: pointer">
@@ -252,43 +216,7 @@
               机器人各轴功率
             </div>
             <div class="chartDiv">
-              <v-chart class="chart" :option="option5" />
-            </div>
-          </div>
-          <div class="data3 fl t_btn6" style="cursor: pointer">
-            <!--左上十字边框-->
-            <div class="t_line_box">
-              <i class="t_l_line"></i>
-              <i class="l_t_line"></i>
-            </div>
-            <!--右上边框-->
-            <div class="t_line_box">
-              <i class="t_r_line"></i>
-              <i class="r_t_line"></i>
-            </div>
-            <!--左下边框-->
-            <div class="t_line_box">
-              <i class="l_b_line"></i>
-              <i class="b_l_line"></i>
-            </div>
-            <!--右下边框-->
-            <div class="t_line_box">
-              <i class="r_b_line"></i>
-              <i class="b_r_line"></i>
-            </div>
-            <!-- 左上框标题 -->
-            <div class="data_title">
-              <img
-                style="margin-left:-30px;margin-top:-6px"
-                width="30px"
-                height="30px"
-                src="@/assets/images/HDYMJQRZK/机器人/温度.png"
-                alt=""
-              />
-              机器人各轴温度
-            </div>
-            <div class="chartDiv">
-              <v-chart class="chart" :option="option6" />
+              <v-chart class="chart" :option="option4" />
             </div>
           </div>
         </div>
@@ -304,6 +232,15 @@ export default {
     //这里存放数据
     return {
       posinfo: {
+        //存放处理后的数据
+        list: [],
+        //存放后端穿过来的数据
+        listCache: [],
+        lastData: {},
+        lastId: 0,
+        lastTime: 0
+      },
+      axisinfo: {
         //存放处理后的数据
         list: [],
         //存放后端穿过来的数据
@@ -393,7 +330,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "功率/W"
+          name: "速度/m/s"
         },
         visualMap: {
           show: false,
@@ -554,7 +491,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "mm·s^-2"
+          name: "电流/A"
         },
         visualMap: {
           show: false,
@@ -715,7 +652,7 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "电流/I"
+          name: "转矩/N·M"
         },
         visualMap: {
           show: false,
@@ -876,167 +813,6 @@ export default {
           },
           type: "value",
           location: "end",
-          name: "N·M"
-        },
-        visualMap: {
-          show: false,
-          pieces: [
-            {
-              gt: 8100.001,
-              color: "red"
-            },
-            {
-              lte: 8100,
-              color: "#91cc75"
-            }
-          ]
-        },
-        series: [
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#91cc75"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#2295d4"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          }
-        ]
-      },
-      option5: {
-        animation: false,
-        title: [
-          {
-            show: false
-          }
-        ],
-        xAxis: {
-          name: "t/s",
-          type: "category",
-          boundaryGap: false,
-          data: [],
-          axisLine: {
-            onZero: false,
-            color: "#666669",
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          },
-          axisLabel: {
-            interval: 4,
-            textStyle: {
-              color: "#fff"
-            }
-          },
-          splitLine: {
-            lineStyle: {
-              type: "solid",
-              color: "#fff", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          }
-        },
-        yAxis: {
-          axisTick: {
-            show: true
-          },
-          min: value => {
-            return Math.floor(value.min / 10) * 10;
-          },
-          max: value => {
-            return Math.ceil(value.max / 10) * 10;
-          },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: "#ccc0"
-            }
-          },
-          axisLine: {
-            show: true,
-            color: "#666669",
-            nameTextStyle: {
-              fontSize: 5
-            },
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          },
-          axisLabel: {
-            textStyle: {
-              show: true,
-              fontSize: "10"
-            }
-          },
-          type: "value",
-          location: "end",
           name: "功率/W"
         },
         visualMap: {
@@ -1127,205 +903,12 @@ export default {
           }
         ]
       },
-      option6: {
-        animation: false,
-        title: [
-          {
-            show: false
-          }
-        ],
-        xAxis: {
-          name: "t/s",
-          type: "category",
-          boundaryGap: false,
-          data: [],
-          axisLine: {
-            onZero: false,
-            color: "#666669",
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          },
-          axisLabel: {
-            interval: 4,
-            textStyle: {
-              color: "#fff"
-            }
-          },
-          splitLine: {
-            lineStyle: {
-              type: "solid",
-              color: "#fff", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          }
-        },
-        yAxis: {
-          axisTick: {
-            show: true
-          },
-          min: value => {
-            return Math.floor(value.min / 10) * 10;
-          },
-          max: value => {
-            return Math.ceil(value.max / 10) * 10;
-          },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: "#ccc0"
-            }
-          },
-          axisLine: {
-            show: true,
-            color: "#666669",
-            nameTextStyle: {
-              fontSize: 5
-            },
-            lineStyle: {
-              type: "solid",
-              color: "#EEEEF1", //左边线的颜色
-              width: "1" //坐标线的宽度
-            }
-          },
-          axisLabel: {
-            textStyle: {
-              show: true,
-              fontSize: "10"
-            }
-          },
-          type: "value",
-          location: "end",
-          name: "温度/℃"
-        },
-        visualMap: {
-          show: false,
-          pieces: [
-            {
-              gt: 8100.001,
-              color: "red"
-            },
-            {
-              lte: 8100,
-              color: "#91cc75"
-            }
-          ]
-        },
-        series: [
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#91cc75"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#2295d4"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#f8e543"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#d2d646"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#584a9d"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          },
-          {
-            data: [],
-            itemStyle: {
-              normal: {
-                lineStyle: {
-                  color: "#fea32b"
-                }
-              }
-            },
-            type: "line",
-            showSymbol: false
-          }
-        ]
-      },
-      tableData1: [
-        {
-          name: "数据条编号",
-          data: "Number1"
-        },
-        {
-          name: "孔号",
-          data: "Hole1"
-        }
-      ],
-      tableData2: [
-        {
-          name: "飞机编号",
-          data: "Plane1"
-        },
-        {
-          name: "刀具编号",
-          data: "CEDrill1"
-        }
-      ],
-      tableData3: [
-        {
-          name: "产品内部id",
-          data: "id1"
-        }
-      ],
-      tableData4: [
-        {
-          name: "工艺流程编号",
-          data: "Process1"
-        }
-      ]
     };
   },
   methods: {
     getData() {
       this.getD();
-      this.getRealtime("posinfo", this.posinfo);
+      this.getRealtime("axisinfo", this.axisinfo);
       this.refresh0();
     },
     getD() {
@@ -1339,7 +922,7 @@ export default {
     getRealtime(link, entity) {
       //读取实时表数据
       this.$http({
-        url: this.$http.adornUrl("hdym/" + link + "/getLi/" + entity.lastId),
+        url: this.$http.adornUrl("amehdym/" + link + "/getli/" + entity.lastId),
         method: "get"
       }).then(({ data }) => {
         entity.listCache = data;
@@ -1364,18 +947,31 @@ export default {
       }
     },
     refresh0() {
-      this.refresh(this.posinfo);
-      this.refresh1(this.posinfo, this.option1.series[0], "a1");
-      this.refresh1(this.posinfo, this.option1.series[1], "a2");
-      this.refresh1(this.posinfo, this.option1.series[2], "a3");
-      this.refresh1(this.posinfo, this.option1.series[3], "a4");
-      this.refresh1(this.posinfo, this.option1.series[4], "a5");
-      this.refresh1(this.posinfo, this.option1.series[5], "a6");
-      this.option2.series = this.option1.series;
-      this.option3.series = this.option1.series;
-      this.option4.series = this.option1.series;
-      this.option5.series = this.option1.series;
-      this.option6.series = this.option1.series;
+      this.refresh(this.axisinfo);
+      this.refresh1(this.axisinfo, this.option1.series[0], "vel1");
+      this.refresh1(this.axisinfo, this.option1.series[1], "vel2");
+      this.refresh1(this.axisinfo, this.option1.series[2], "vel3");
+      this.refresh1(this.axisinfo, this.option1.series[3], "vel4");
+      this.refresh1(this.axisinfo, this.option1.series[4], "vel5");
+      this.refresh1(this.axisinfo, this.option1.series[5], "vel6");
+      this.refresh1(this.axisinfo, this.option2.series[0], "current1");
+      this.refresh1(this.axisinfo, this.option2.series[1], "current2");
+      this.refresh1(this.axisinfo, this.option2.series[2], "current3");
+      this.refresh1(this.axisinfo, this.option2.series[3], "current4");
+      this.refresh1(this.axisinfo, this.option2.series[4], "current5");
+      this.refresh1(this.axisinfo, this.option2.series[5], "current6");
+      this.refresh1(this.axisinfo, this.option3.series[0], "torque1");
+      this.refresh1(this.axisinfo, this.option3.series[1], "torque2");
+      this.refresh1(this.axisinfo, this.option3.series[2], "torque3");
+      this.refresh1(this.axisinfo, this.option3.series[3], "torque4");
+      this.refresh1(this.axisinfo, this.option3.series[4], "torque5");
+      this.refresh1(this.axisinfo, this.option3.series[5], "torque6");
+      this.refresh1(this.axisinfo, this.option4.series[0], "power1");
+      this.refresh1(this.axisinfo, this.option4.series[1], "power2");
+      this.refresh1(this.axisinfo, this.option4.series[2], "power3");
+      this.refresh1(this.axisinfo, this.option4.series[3], "power4");
+      this.refresh1(this.axisinfo, this.option4.series[4], "power5");
+      this.refresh1(this.axisinfo, this.option4.series[5], "power6");
     },
     // 设置y轴数据
     refresh1(entity, series, key) {
@@ -1447,109 +1043,5 @@ export default {
 };
 </script>
 <style scoped>
-.data_content .fasten_content {
-  height: 260px;
-}
-.data_content .fasten_content .robot_table table {
-  width: 100%;
-  margin-top: 40px;
-  /* border:solid #ffff43 2px; */
-}
 
-th {
-  font-size: 25px;
-  font-weight: 600;
-  color: #61d2f7;
-  /* text-align: center; */
-  line-height: 50px;
-  /* border:solid #ffff43 2px; */
-}
-
-td {
-  font-size: 25px;
-  /* font-weight: 600; */
-  color: rgb(245, 241, 241);
-  text-align: left;
-  line-height: 50px;
-  /* border:solid #ffff43 2px; */
-}
-td:nth-child(1),
-td:nth-child(3),
-td:nth-child(5) {
-  width: 23%;
-  font-size: 25px;
-  font-weight: 600;
-  color: #61d2f7;
-  padding-left: 60px;
-  line-height: 50px;
-}
-td:nth-child(2),
-td:nth-child(4) {
-  width: 10%;
-  font-size: 25px;
-  font-weight: 600;
-  padding-left: 60px;
-  line-height: 50px;
-}
-.data_bottom {
-  width: 90%;
-  height: 600px;
-  margin-left: 80px;
-  margin-top: 3%;
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content1 {
-  width: 100%;
-  height: 45%;
-  /* margin-left: -150px; */
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content2 {
-  width: 100%;
-  height: 45%;
-  margin-top: 3%;
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content1 > div {
-  width: 31%;
-  height: 100%;
-  box-sizing: border-box;
-  border: 1px solid #2c58a6;
-  position: relative;
-  box-shadow: 0 0 10px #2c58a6;
-  /* margin-left: -10%; */
-  /* border:solid #ffff43 2px; */
-}
-.data_bottom .bottom_content2 > div {
-  width: 31%;
-  height: 100%;
-  box-sizing: border-box;
-  border: 1px solid #2c58a6;
-  position: relative;
-  box-shadow: 0 0 10px #2c58a6;
-  /* margin-left: -10%; */
-  /* border:solid #ffff43 2px; */
-}
-.data2,
-.data3 {
-  margin-left: 3.5%;
-}
-.data_title {
-  width: 245px;
-  height: 35px;
-  line-height: 33px;
-  background-color: #2c58a6;
-  border-radius: 18px;
-  position: absolute;
-  top: -17px;
-  left: 40%;
-  margin-left: -90px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  box-sizing: border-box;
-  padding-left: 0px;
-  z-index: 1000;
-  text-align: center;
-}
 </style>

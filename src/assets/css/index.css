@@ -1353,3 +1353,136 @@ tbody tr:nth-child(33) {
     padding-bottom: 20px;
     float: left;
 } */
+
+
+
+.robot .data_content{
+    /* border:solid #ffff43 2px; */
+}
+.robot .data_content .fasten_content {
+    height: 22%;
+    margin-left: 4%;
+    /* border:solid #ffff43 2px; */
+  }
+.robot  .data_content .fasten_content .robot_table table {
+    width: 100%;
+    /* margin-top: 40px; */
+    /* border:solid #ffff43 2px; */
+  }
+
+.robot  .data_content .fasten_content .robot_table  {
+    width: 100%;
+    margin-top: 40px;
+    /* border:solid #ff4343 2px; */
+  }
+  
+.robot th {
+    font-size: 25px;
+    font-weight: 600;
+    color: #61d2f7;
+    /* text-align: center; */
+    line-height: 50px;
+    /* border:solid #ffff43 2px; */
+  }
+  
+.robot  td {
+    font-size: 25px;
+    /* font-weight: 600; */
+    color: rgb(245, 241, 241);
+    text-align: left;
+    line-height: 50px;
+    /* border:solid #ffff43 2px; */
+  }
+.robot  td:nth-child(1),
+.robot  td:nth-child(3),
+.robot  td:nth-child(5) {
+    width: 23%;
+    font-size: 25px;
+    font-weight: 600;
+    color: #61d2f7;
+    padding-left: 60px;
+    line-height: 50px;
+  }
+.robot  td:nth-child(2),
+.robot  td:nth-child(4) {
+    width: 10%;
+    font-size: 25px;
+    font-weight: 600;
+    padding-left: 60px;
+    line-height: 50px;
+  }
+.robot .data_bottom {
+    width: 90%;
+    height: 65%;
+    margin-left: 4%;
+    margin-top: 3.5%;
+    /* border:solid #ff8b43 2px; */
+  }
+.robot .data_bottom .bottom_content1 {
+    width: 100%;
+    height: 45%;
+    /* margin-left: -150px; */
+    /* border:solid #ffff43 2px; */
+  }
+.robot .data_bottom .bottom_content2 {
+    width: 100%;
+    height: 45%;
+    margin-top: 3%;
+    /* border:solid #ffff43 2px; */
+  }
+.robot .data_bottom .bottom_content1 > div {
+    width: 35%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    /* margin-left: -10%; */
+    /* border:solid #ffff43 2px; */
+  }
+.robot .data_bottom .bottom_content2 > div {
+    width: 35%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #2c58a6;
+    position: relative;
+    box-shadow: 0 0 10px #2c58a6;
+    /* margin-left: -10%; */
+    /* border:solid #ffff43 2px; */
+  }
+.robot .data1 {
+    margin-left: 10%;
+  }
+.robot .data2 {
+    margin-left: 10%;
+  }
+.robot .data_title {
+    width: 245px;
+    height: 35px;
+    line-height: 33px;
+    background-color: #2c58a6;
+    border-radius: 18px;
+    position: absolute;
+    top: -17px;
+    left: 40%;
+    margin-left: -90px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding-left: 0px;
+    z-index: 1000;
+    text-align: center;
+  }
+.robot .chartDiv {
+    width: 98%;
+    height: 100%;
+    text-align: center;
+    margin-left: 1%;
+    /* border:solid #ffff43 2px; */
+}
+.chart {
+    width: 100%;
+    height: 100%;
+    /* border:solid #ffff43 2px; */
+}
