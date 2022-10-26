@@ -37,6 +37,13 @@
                   background: rgba(255, 255, 255, 0);
                 "
               ></iframe>
+              <!-- <img
+              style="margin-left: -30px; margin-top: -6px"
+              width="1000px"
+              height="600px"
+              src="@/assets/images/HDYMJQRZK/system.png"
+              alt=""
+            /> -->
             </div>
           </div>
         </div>

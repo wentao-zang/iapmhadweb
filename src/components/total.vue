@@ -34,7 +34,9 @@ export default {
       tree: [
         {
           id: 1,
-          label: "活动翼面制孔机器人系统",
+          // label: "活动翼面制孔机器人系统",
+          
+          label: "六轴机器人加工系统",
           link: "/total/hdymzkjqrxt/system",
           children: [
             {
