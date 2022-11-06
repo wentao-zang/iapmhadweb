@@ -1669,7 +1669,7 @@ export default {
     });
     const timer = setInterval(() => {
       this.getData();
-    }, 2000);
+    }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
     this.$once("hook:beforeDestroy", () => {
       clearInterval(timer);
@@ -1679,7 +1679,7 @@ export default {
     this.getproductinfo();
     this.getjindu();
     this.getDatakj();
-    }, 10000);
+    }, 1000);
     // 通过$once来监听定时器，在beforeDestroy钩子可以被清
     this.$once("hook:beforeDestroy", () => {
       clearInterval(timerr);
